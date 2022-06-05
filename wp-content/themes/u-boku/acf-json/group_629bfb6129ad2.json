@@ -237,6 +237,127 @@
                             "maxlength": "",
                             "rows": 2,
                             "new_lines": "br"
+                        },
+                        {
+                            "key": "field_629ce30cb5da0",
+                            "label": "Items",
+                            "name": "items",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_629ce31bb5da1",
+                                    "label": "Item Title",
+                                    "name": "item_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_629ce352b5da3",
+                                    "label": "Item Thumbnail",
+                                    "name": "item_thumbnail",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_629ce337b5da2",
+                                    "label": "Item Description",
+                                    "name": "item_description",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_629ce358b5da4",
+                                    "label": "Item Link",
+                                    "name": "item_link",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_629ce362b5da5",
+                                    "label": "Item Code",
+                                    "name": "item_code",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -502,7 +623,7 @@
                             "key": "field_629cc5aaf5c69",
                             "label": "Category Select",
                             "name": "category_select",
-                            "type": "taxonomy",
+                            "type": "repeater",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -511,14 +632,35 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
-                            "field_type": "select",
-                            "allow_null": 0,
-                            "add_term": 1,
-                            "save_terms": 0,
-                            "load_terms": 0,
-                            "return_format": "object",
-                            "multiple": 0
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_629ce4a428e66",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "category",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "multiple": 0
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -736,5 +878,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654441611
+    "modified": 1654449429
 }
