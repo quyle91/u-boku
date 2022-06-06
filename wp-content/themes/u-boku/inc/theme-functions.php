@@ -312,23 +312,28 @@ function ubk_get_socials($acfkey = 'navigation_fixed_socials',$key1 = 'icon_svg'
     ob_start();
     $socials = ubk_get_field($acfkey);    
     if(check_array($socials)){
-    foreach ($socials as $key => $value) {
-    if(isset($value[$key1]) and $value[$key1]){
-    if($is_li) { 
-        echo '<li>';
-    }
-    echo '<a href="'.$value[$key2].'">
-            <img width="22px" height="auto" src="'.$value[$key1].'" alt="Follow Social">
-        </a>';
-    if($is_li) { 
-        echo '</li>';
-    }
-    }
-    }
+        foreach ($socials as $key => $value) {
+            if(isset($value[$key1]) and $value[$key1]){
+                if($is_li) { 
+                    echo '<li>';
+                }
+                echo '<a href="'.$value[$key2].'">
+                        <img width="22px" height="auto" src="'.$value[$key1].'" alt="Follow Social">
+                    </a>';
+                if($is_li) { 
+                    echo '</li>';
+                }
+            }
+        }
     }
     return ob_get_clean();
 }
-function ubk_get_btn_view_more($link = '#', $moretext = 'もっと見る', $morehover = '新着記事一覧'){
+function ubk_get_btn_view_more($cat = false, $moretext = 'もっと見る', $morehover = '新着記事一覧'){     
+    if($cat){
+        $link = get_category_link( $cat );
+    }else{
+        $link = get_permalink(get_option('page_for_posts'));
+    }
     ob_start();
     ?>
     <div class="btnMore btnMore--mw250">
@@ -339,6 +344,16 @@ function ubk_get_btn_view_more($link = '#', $moretext = 'もっと見る', $more
                 <img class="svg" src="<?php echo get_template_directory_uri()."/assets/"; ?>images/common/icon-arrow-white.svg" alt="">
             </span>
         </a>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+function ubk_get_btn_next_prev(){
+    ob_start();
+    ?>
+    <div class="btnControl">
+        <button class="btn-control btn-prev"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-prev01.svg" alt=""></button>
+        <button class="btn-control btn-next"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-next01.svg" alt=""></button>
     </div>
     <?php
     return ob_get_clean();

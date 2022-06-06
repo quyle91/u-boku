@@ -22,38 +22,13 @@
                 if ( $query->have_posts() ) { 
                     while ( $query->have_posts() ) { 
                         $query->the_post();
-                        ?>
-                        <li>
-                            <div class="news">
-                                <div class="lstNew-thumb thumbScale">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php echo get_the_post_thumbnail( get_the_id(), 'bbk_thumbnail' ); ?>
-                                    </a>
-                                </div>
-                                <div class="lstNew-info">
-                                    <h3 class="lstNew-title">
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </h3>
-                                    <div class="lstNew-label">
-                                        <span class="lstNew-date f-Oswald">
-                                            <?php echo get_the_date(); ?>                                                
-                                        </span>
-                                        <span class="lstNew-span">
-                                            <?php 
-                                                echo get_the_author_meta('display_name');
-                                            ?>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <?php
+                        echo get_template_part('templates/posts/posts','default');
                     }
                 }
                 wp_reset_postdata();                
                 ?>
             </ul>
         </div>
-        <?php echo ubk_get_btn_view_more(get_permalink(get_option('page_for_posts'))); ?>
+        <?php echo ubk_get_btn_view_more($cat); ?>
     </div>
     </div><!--/.sectionNews-->

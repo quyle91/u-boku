@@ -15,91 +15,31 @@
             
             <div class="sliderFa">
                 <div class="slider sliderFactory">
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <div class="lstNew-thumb thumbScale">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/imgThumb05.png" alt=""></a>
-                        </div>
-                        <div class="lstNew-info">
-                            <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
-                            <div class="lstNew-label">
-                                <span class="lstNew-date f-Oswald">2021.12.12</span>
-                                <span class="lstNew-span">U-boku編集部</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php 
+                    $args = array(
+                        'post_type'   => 'post',
+                        'post_status' => 'publish',
+                        'posts_per_page' => 3             
+                    );
+
+                    $cat = ubk_get_sub_field('category_select');
+                    if($cat){
+                        $args['category__in'] = [$cat->term_id];
+                    }
+
+                    $query = new WP_Query( $args );
+                    if ( $query->have_posts() ) { 
+                        while ( $query->have_posts() ) { 
+                            $query->the_post();
+                            echo get_template_part('templates/posts/posts','div');
+                        }
+                    }
+                    wp_reset_postdata();                
+                    ?>                    
                 </div>
                 <div class="faContent-btn">
-                    <div class="btnControl">
-                        <button class="btn-control btn-prev"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-prev01.svg" alt=""></button>
-                        <button class="btn-control btn-next"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-next01.svg" alt=""></button>
-                    </div>
-                    <div class="btnMore">
-                        <a class="more" href="#">
-                            <span class="moreText">もっと見る</span>
-                            <span class="moreHover">新着記事一覧</span>
-                            <span class="moreItem"><img class="svg" src="<?php echo get_template_directory_uri()."/assets/"; ?>images/common/icon-arrow-white.svg" alt=""></span>
-                        </a>
-                    </div>
+                    <?php echo ubk_get_btn_next_prev($cat); ?>            
+                    <?php echo ubk_get_btn_view_more($cat); ?>                    
                 </div>
             </div>
         </div>
