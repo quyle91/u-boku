@@ -1,3 +1,215 @@
 img{
 	height: auto;
 }
+.bar .barTitle{
+    padding: 0;
+    margin: 60px 0 14px;
+}
+
+/*single post excerpt*/
+.detaiContent p{
+	margin-top:  1.5rem !important;
+}
+.detaiContent strong{
+	font-weight: 500;
+}
+.detaiContent p span[style="text-decoration: underline;"]{
+	color:  #4FBAC4;
+	font-weight: 500;
+    position: relative;
+    padding: 0 12px 5px 0;
+    text-decoration: none !important;
+}
+.detaiContent p span[style="text-decoration: underline;"]::after{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 6px;
+	background: #FFF14D;
+}
+
+/*single post content*/
+#ftwp-postcontent {
+  padding-top: 50px;
+}
+#ftwp-postcontent p{
+	margin-top:  1.5rem ;
+}
+#ftwp-postcontent .ftwp-heading {
+  background: #EDFDFF;
+  border-left: 5px solid #4FBAC4;
+  border-bottom: 1px solid #4FBAC4;
+  padding: 16px 24px;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  #ftwp-postcontent .ftwp-heading {
+    font-size: 18px;
+    padding: 16px;
+  }
+}
+#ftwp-postcontent img {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  #ftwp-postcontent .forWork-text {
+    font-size: 15px;
+  }
+}
+#ftwp-postcontent a {
+  color: #4FBAC4;
+  font-weight: 500;
+}
+#ftwp-postcontent h3.ftwp-heading {
+  font-size: 22px;
+  font-weight: 500;
+  border-left: 5px solid #4FBAC4;
+  padding: 6px 24px;
+  margin: 50px 0 30px;
+  background: transparent;
+  border-bottom:  0;
+}
+@media (max-width: 767px) {
+  #ftwp-postcontent h3.ftwp-heading {
+    font-size: 18px;
+    padding: 6px 16px;
+  }
+}
+#ftwp-postcontent h4.ftwp-heading {
+  margin: 50px 0 30px;
+  font-size: 18px;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: transparent;
+  border:  0;
+  padding:  0;
+}
+#ftwp-postcontent h4.ftwp-heading img {
+  max-width: 15px;
+  min-width: 15px;
+  margin-right:  10px;
+}
+
+/*single post fixed toc*/
+#ftwp-container-outer {
+  padding-top: 80px;
+  max-width: unset !important;
+}
+#ftwp-contents {
+	border:  none !important;
+	width: 100% !important;
+}
+#ftwp-header-title{
+	font-family: "Oswald", sans-serif !important;
+	font-size: 30px !important;
+    font-weight: 300 !important;
+}
+@media (max-width: 767px) {
+  #ftwp-container-outer {
+    padding-top: 50px;
+    width: calc(100% + 40px) !important;
+    margin-left: -20px;
+  }
+}
+#ftwp-container-outer #ftwp-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: flex-start;
+  background: #4FBAC4 !important;
+  padding: 12px 30px !important;
+  color: #fff !important;
+}
+#ftwp-container-outer #ftwp-list {
+	padding:  20px;
+}
+#ftwp-container-outer #ftwp-list li{
+	margin-bottom:  10px;	
+	margin-top:  10px;	
+}
+#ftwp-container-outer #ftwp-list .ftwp-sub{
+	padding-top: 20px;
+}
+#ftwp-container-outer #ftwp-list .ftwp-sub li{
+	margin-bottom:  5px;	
+	margin-top:  5px;	
+}
+
+#ftwp-container-outer #ftwp-list .ftwp-anchor::before{
+    font-size: 18px !important;
+    color: #4FBAC4;
+    padding: 2px 10px;
+    margin-right: 20px;
+    background: #fff;
+    font-weight: 400 !important;
+    font-family: "Oswald", sans-serif !important;
+}
+#ftwp-container-outer #ftwp-list .ftwp-anchor .ftwp-text{
+	margin-top: 3px;
+}
+#ftwp-container-outer #ftwp-list  .ftwp-text{
+	font-size: 1rem;
+}
+
+/*breadcrumb*/
+.breadcrumb{
+  font-size: 14px;
+}
+.breadcrumb a{
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.breadcrumb a::after{
+  content: "";
+  height: 9px;
+  background: url(../images/common/icon-breadcrumb.svg) no-repeat;
+  display: inline-block;
+  padding: 4px 10px;
+  margin-left: 15px;
+}
+
+/*widget*/
+.wrapBar .bar,
+.wrapBar .bar .gallery .gallery-item{
+  margin-bottom: 40px;
+}
+
+/*pagination*/
+.pagination ul li span{
+  color: #000;
+  font-size: 20px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 22px;
+  padding: 0 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;  
+}
+.pagination ul li a,
+.pagination ul li span{
+    font-family: "Oswald", sans-serif;
+}
+.pagination ul li.active a {
+    background: #EDFDFF;
+}
+.pagination ul li span.current{
+    background: #EDFDFF;
+}

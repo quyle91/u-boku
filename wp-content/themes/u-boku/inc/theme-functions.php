@@ -328,6 +328,69 @@ function ubk_get_socials($acfkey = 'navigation_fixed_socials',$key1 = 'icon_svg'
     }
     return ob_get_clean();
 }
+function ubk_get_btn_next_prev(){
+    ob_start();
+    ?>
+    <div class="btnControl">
+        <button class="btn-control btn-prev"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-prev01.svg" alt=""></button>
+        <button class="btn-control btn-next"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-next01.svg" alt=""></button>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+function ubk_get_related_posts( $post_id, $related_count, $args = array() ) {
+
+    $args = wp_parse_args( (array) $args, array(
+        'orderby' => 'rand',
+        'return'  => 'query', // Valid values are: 'query' (WP_Query object), 'array' (the arguments array)
+    ) );
+
+    if(is_single()){
+        $related_args = array(
+            'post_type'      => get_post_type( $post_id ),
+            'posts_per_page' => $related_count,
+            'post_status'    => 'publish',
+            'post__not_in'   => array( $post_id ),
+            'orderby'        => $args['orderby'],
+            'tax_query'      => array()
+        );
+
+        $post       = get_post( $post_id );
+        $taxonomies = get_object_taxonomies( $post, 'names' );  
+
+        foreach ( $taxonomies as $taxonomy ) {
+            $terms = get_the_terms( $post_id, $taxonomy );            
+            if ( empty( $terms ) ) {
+                continue;
+            }
+            $term_list                   = wp_list_pluck( $terms, 'slug' );
+            $related_args['tax_query'][] = array(
+                'taxonomy' => $taxonomy,
+                'field'    => 'slug',
+                'terms'    => $term_list
+            );
+        }
+
+        if ( count( $related_args['tax_query'] ) > 1 ) {
+            $related_args['tax_query']['relation'] = 'OR';
+        }
+    }else{
+        // Get all news if is in category
+        $related_args = array(
+            'post_type'      => 'post',
+            'posts_per_page' => $related_count,
+            'post_status'    => 'publish',
+            'orderby'        => $args['orderby'],
+            'tax_query'      => array()
+        );        
+    }
+    
+    if ( $args['return'] == 'query' ) {
+        return new WP_Query( $related_args );
+    } else {
+        return $related_args;
+    }
+}
 function ubk_get_btn_view_more($cat = false, $moretext = 'もっと見る', $morehover = '新着記事一覧'){     
     if($cat){
         $link = get_category_link( $cat );
@@ -348,13 +411,78 @@ function ubk_get_btn_view_more($cat = false, $moretext = 'もっと見る', $mor
     <?php
     return ob_get_clean();
 }
-function ubk_get_btn_next_prev(){
-    ob_start();
+function ubk_get_btn_view_more_single($post_id){
+    $terms = get_the_terms( $post_id, 'category' );
+    $cat = false;
+    if(isset($terms[0])){
+        $cat = $terms[0];        
+    }
+
+    return ubk_get_btn_view_more($cat);
+}
+function ubk_get_blog_title(){
+    $tag = "2";
+    if ( (is_front_page() && is_home()) || (is_page()) ) {
+        $title = get_the_title();
+        $tag = "1";
+
+    } elseif ( is_front_page() ) {
+        $title = 'static homepage';
+
+    } elseif ( is_home() ) {
+        $blog_id = get_option('page_for_posts');
+        $page_for_posts_obj = get_post($blog_id);
+        $title = $page_for_posts_obj->post_title;
+
+    } elseif ( is_category() ){
+        $title = single_cat_title( '', false );
+
+        $term = get_queried_object();        
+        $category_banner = get_field('category_banner', $term);
+        $category_banner_mobile = get_field('category_banner_mobile', $term);
+        if($category_banner){
+            ?>
+            <div class="thumbBanner">
+                <?php echo wp_get_attachment_image( $category_banner, 'full', false, ['class'=>'d-none d-md-block'] ); ?>
+                <?php echo wp_get_attachment_image( $category_banner, 'full', false, ['class'=>'d-block d-md-none'] ); ?>
+                <div class="thumbCmt">
+                    <span class="thumbCmt-label"><?php echo $term->name; ?></span>
+                    <div class="thumbCmt-info">
+                        <p>
+                            <?php echo $term->description; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <?php
+            return;
+        }
+
+    } elseif ( is_tag() ){
+        $title = single_tag_title( '', false );        
+
+    } elseif ( is_search() ){
+        $title = get_search_query();
+
+    } elseif ( is_author() ){
+        $title = get_the_author();
+
+    } elseif ( is_day() ){
+        $title = get_the_date();
+
+    } elseif ( is_month() ){
+        $title = get_the_date( 'F Y' );
+
+    } elseif ( is_year() ){
+        $title = get_the_date( 'Y' );
+
+    } else {
+        $title = 'verything else';
+    }
     ?>
-    <div class="btnControl">
-        <button class="btn-control btn-prev"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-prev01.svg" alt=""></button>
-        <button class="btn-control btn-next"><img src="<?php echo get_template_directory_uri()."/assets/"; ?>images/data/btn-next01.svg" alt=""></button>
+    <div class="title">
+        <h<?php echo $tag ;?> class="title-tlt f-Oswald"><?php echo $title; ?></h<?php echo $tag ;?>>
+        <p class="title-text"><?php echo get_bloginfo( 'description' ); ?></p>
     </div>
     <?php
-    return ob_get_clean();
 }

@@ -13,17 +13,32 @@
 
 get_header(); ?>
 <div class="main">
-  <?php
-    if (have_posts()) {
-
-      // Load posts loop.
-      while (have_posts()) {
-
-        the_post();
-        the_content();
-      }
-    }
-  ?>
+    <?php echo get_template_part( 'templates/single-post/breadcrumb', '' ); ?>
+    <div class="wrap">
+        <div class="wrapContent">
+            <div class="wrapMain">
+                <?php echo ubk_get_blog_title(); ?>
+                <div class="listLocal">
+                    <ul>
+                        <?php
+                        if (have_posts()) {
+                            // Load posts loop.
+                            while (have_posts()) {
+                                the_post();
+                                echo get_template_part('templates/posts/posts','default');
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <?php echo ubk_posts_navigation(); ?>
+            </div>
+            <?php get_sidebar(); ?>
+        </div><!--/.wrapContent-->
+    </div>
+    
+    <?php echo get_template_part( 'templates/single-post/section', 'related' ); ?>
+    <?php echo get_template_part( 'templates/single-post/section', 'factory' ); ?>
 </div>
 <?php
 get_footer();

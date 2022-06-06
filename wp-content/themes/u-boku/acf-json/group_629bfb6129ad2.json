@@ -1,6 +1,6 @@
 {
     "key": "group_629bfb6129ad2",
-    "title": "Components",
+    "title": "Components Page",
     "fields": [
         {
             "key": "field_629bfde1ce608",
@@ -63,7 +63,9 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "post_type": "",
+                                    "post_type": [
+                                        "post"
+                                    ],
                                     "taxonomy": "",
                                     "allow_null": 0,
                                     "multiple": 0,
@@ -878,5 +880,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654478474
+    "modified": 1654540952
 }

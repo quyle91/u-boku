@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -11,29 +12,34 @@
  */
 
 get_header(); ?>
-
-  <main role="main" class="main">
-      <div class="container">
-          <div class="default-page">
-              <?php
-
-              if ( have_posts() ) {
-
-                  // Load posts loop.
-                  while ( have_posts() ) {
-
-                      the_post();
-                      echo "<h1>";
-                      the_title();
-                      echo "</h1>";
-                      the_content();
-
-                  }
-              }
-              ?>
-          </div>
-      </div>
-  </main>
-
+<div class="main">
+    <?php echo get_template_part( 'templates/single-post/breadcrumb', '' ); ?>
+    <div class="wrap">
+        <div class="wrapContent">
+            <div class="wrapMain">
+                <?php
+                if(
+                    have_rows('components_default') or 
+                    have_rows('components') 
+                ){
+                    if(have_rows('components_default')){
+                        while ( have_rows('components_default') ) : the_row();
+                            //echo "<pre>";print_r(get_row_layout());echo "</pre>";
+                            get_template_part('templates/components/component-'.str_replace("_", "-", get_row_layout()));
+                        endwhile;
+                    }
+                    if(have_rows('components')){
+                        while ( have_rows('components') ) : the_row();
+                            //echo "<pre>";print_r(get_row_layout());echo "</pre>";
+                            get_template_part('templates/components/component-'.str_replace("_", "-", get_row_layout()));
+                        endwhile;
+                    }
+                }
+                ?>
+            </div>
+            <?php get_sidebar(); ?>
+        </div><!--/.wrapContent-->
+    </div>
+</div>
 <?php
 get_footer();

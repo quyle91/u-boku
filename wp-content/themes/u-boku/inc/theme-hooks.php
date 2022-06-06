@@ -47,3 +47,6 @@ add_filter('wpcf7_form_tag', 'ubk_getRefererPage');
 add_shortcode('ubk_current_year', 'ubk_current_year');
 add_filter('wp_nav_menu_items', 'add_extra_item_to_nav_menu', 10, 2);
 add_action('init', 'ubk_register_menu');
+add_filter('the_content',function($content){
+    return str_replace("<p", "<p class='mt-4'", $content);
+});

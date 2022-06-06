@@ -11,10 +11,11 @@
                         'posts_per_page' => 3             
                     );
 
-                    $cat = ubk_get_sub_field('category_select');
+                    $cat = ubk_get_sub_field('category_select');                    
                     if($cat){
                         $args['category__in'] = [$cat->term_id];
                     }
+
 
                     $query = new WP_Query( $args );
                     if ( $query->have_posts() ) { 

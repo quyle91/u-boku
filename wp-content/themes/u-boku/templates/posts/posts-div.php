@@ -1,7 +1,7 @@
 <div class="news">
     <div class="lstNew-thumb thumbScale">
         <a href="<?php the_permalink(); ?>">
-            <?php echo get_the_post_thumbnail( get_the_id(), 'bbk_thumbnail' ); ?>
+            <?php echo get_the_post_thumbnail( get_the_id(), 'ubk_thumbnail' ); ?>
         </a>
     </div>
     <div class="lstNew-info">
