@@ -18,21 +18,19 @@ get_header(); ?>
         <div class="wrapContent">
             <div class="wrapMain">
                 <?php
-                if(
-                    have_rows('components_default') or 
-                    have_rows('components') 
-                ){
+                if(have_rows('components_default') ){
                     if(have_rows('components_default')){
                         while ( have_rows('components_default') ) : the_row();
                             //echo "<pre>";print_r(get_row_layout());echo "</pre>";
                             get_template_part('templates/components/component-'.str_replace("_", "-", get_row_layout()));
                         endwhile;
                     }
-                    if(have_rows('components')){
-                        while ( have_rows('components') ) : the_row();
-                            //echo "<pre>";print_r(get_row_layout());echo "</pre>";
-                            get_template_part('templates/components/component-'.str_replace("_", "-", get_row_layout()));
-                        endwhile;
+                }else{
+                    if (have_posts()) {
+                        while (have_posts()) {
+                            the_post();
+                            the_content();
+                        }
                     }
                 }
                 ?>
