@@ -1,7 +1,6 @@
 <?php
 $matome = get_field('matome_select',get_the_ID());
 $matome_thumbnail = get_field('matome_thumbnail',get_the_ID());
-echo "<pre>";print_r($matome);echo "</pre>";
 if($matome):    
     ob_start();
     ?>
