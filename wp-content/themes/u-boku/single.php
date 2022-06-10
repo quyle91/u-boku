@@ -45,8 +45,7 @@ get_header(); ?>
                     </div>
                     <?php the_content(); ?>
 
-                    <?php echo get_template_part('templates/single-post/matome1','') ?>
-                    <?php echo get_template_part('templates/single-post/matome2','') ?>
+                    <?php echo get_template_part('templates/single-post/matome','') ?>
                     <?php echo get_template_part('templates/single-post/author','') ?>
                     <?php echo get_template_part('templates/single-post/share','') ?>
                     <?php

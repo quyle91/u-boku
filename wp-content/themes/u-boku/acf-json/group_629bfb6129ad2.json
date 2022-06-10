@@ -306,7 +306,7 @@
                                     "key": "field_629ce337b5da2",
                                     "label": "Item Description",
                                     "name": "item_description",
-                                    "type": "text",
+                                    "type": "textarea",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -317,9 +317,9 @@
                                     },
                                     "default_value": "",
                                     "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "rows": 3,
+                                    "new_lines": ""
                                 },
                                 {
                                     "key": "field_629ce358b5da4",
@@ -345,7 +345,7 @@
                                     "label": "Item Code",
                                     "name": "item_code",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "https:\/\/u-boku.com\/media\/wp-content\/themes\/u-boku\/map.svg",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -880,5 +880,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654540952
+    "modified": 1654843074
 }
