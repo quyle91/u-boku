@@ -134,12 +134,16 @@ function ubk_divide_scripts($matches, &$script_body, &$script_head) {
     $matches = array_unique($matches);
     $matches = array_flip($matches);
     
-    if (isset($matches['icon'])) {
+    /*if (isset($matches['icon'])) {
         $script_head[] = '<link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/assets/css/base/icons.css">';
     }
 
     if (isset($matches['table'])) {
         $script_head[] = '<link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/assets/css/base/table.css">';
+    }*/
+
+    if (isset($matches['userSocials'])) {
+        $script_head[] = '<link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/assets/css/fix-userSocials.css">';
     }
 
     $list_components = [
@@ -296,12 +300,20 @@ function ubk_get_tag_list($ulclass="tagLst"){
     ?>
     <ul class="<?php echo $ulclass; ?>">
     <?php 
-        $tags = get_tags(array(
+        /*$tags = get_tags(array(
             'hide_empty' => false
         ));
-        foreach ($tags as $tag) {            
-            echo '<li><a href="'.get_tag_link($tag).'">' . $tag->name . '</a></li>';
-        }
+        echo "<pre>";print_r($tags);echo "</pre>";*/
+        //echo "<pre>";print_r(ubk_get_field('keyword','options'));echo "</pre>";
+        $tags = ubk_get_field('keyword','options');
+        if(check_array($tags)){
+            foreach ($tags as $tag) {       
+                if(isset($tag['items'])){
+                    $tag = $tag['items'];
+                    echo '<li><a href="'.get_tag_link($tag).'">' . $tag->name . '</a></li>';
+                }                
+            }
+        }        
     ?>
     </ul>
     <?php

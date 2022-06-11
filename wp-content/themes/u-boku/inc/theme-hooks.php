@@ -50,3 +50,22 @@ add_action('init', 'ubk_register_menu');
 add_filter('the_content',function($content){
     return str_replace("<p", "<p class='mt-4'", $content);
 });
+
+// post hit
+add_action('wp_footer',function(){
+    if(is_singular('post')){
+        $hit = (int)get_post_meta(get_the_ID(),'hit',true);
+        if($hit){
+            $hit += 1;        
+            update_post_meta( get_the_ID(), 'hit', $hit );
+        }else{
+            update_post_meta( get_the_ID(), 'hit', 0 );
+        }     
+    }
+});
+add_filter('ubk_category_query_args',function($args){
+    $args['meta_key'] = 'hit';
+    $args['orderby'] = 'meta_value_num';
+    $args['meta_type']  = 'NUMERIC';
+    return $args;
+});

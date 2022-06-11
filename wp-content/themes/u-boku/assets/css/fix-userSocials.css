@@ -1,0 +1,33 @@
+.userSocials{
+	max-width: calc( 100% - 300px);
+    padding-right: 10px;
+    float: left;
+    margin-top:  40px;
+}
+@media only screen and (max-width:  767px){
+	.userSocials{
+		max-width: unset;
+		padding-right: unset; 
+		float: none;
+		margin-top:  30px;
+	}
+}
+
+.userSocials ul{
+	display: flex;    	
+	flex-wrap: wrap;
+}
+
+.userSocials ul li{
+	margin-right:  10px;
+	margin-top: 15px;
+}
+
+.userSocials ul li a{	
+	padding: 5px;
+	opacity: 0.5;
+    /*background: #f8f8f8;*/
+}
+.userSocials ul li a svg{
+	width:  23px;
+}

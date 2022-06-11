@@ -37,14 +37,14 @@ class Ubk_Category extends WP_Widget {
         $args = array(
             'post_type'   => 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 3            
+            'posts_per_page' => 3
         );
 
         $category_select = $instance['category_select'];
         if(isset($category_select) and $category_select){
             $args['category__in'] = [$category_select];
         }
-
+        $args = apply_filters( 'ubk_category_query_args', $args );
         $query = new WP_Query( $args );        
         if ( $query->have_posts() ) { 
             ?>
@@ -54,7 +54,7 @@ class Ubk_Category extends WP_Widget {
                 $index = 1; 
                 while ( $query->have_posts() ) { 
                     $query->the_post();
-                    echo get_template_part('templates/posts/posts','default',['index'=>$index]);
+                    echo get_template_part('templates/posts/posts','default',['index'=>$index]);                    
                     $index ++;
                 }
                 ?>

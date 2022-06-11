@@ -5,7 +5,10 @@ img{
     padding: 0;
     margin: 60px 0 14px;
 }
-
+/*fix blog height*/
+.fixedheight{
+  overflow: hidden;
+}
 /*single post excerpt*/
 .detaiContent p{
 	margin-top:  1.5rem !important;
