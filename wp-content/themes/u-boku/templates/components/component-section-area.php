@@ -47,18 +47,24 @@
                         fill: #4fbac4;
                         cursor: pointer;
                     }
+                    .areaThumb{
+                        position: relative;
+                    }
+                    .areaThumb #icon_maker{
+                        width:  32px;
+                        position: absolute;
+                    }
                 </style>
                 <script type="text/javascript">
                     const map_desktop = [];
-
                     <?php
+                        //register box info
                         $map_items = ubk_get_field('map_items');
                         if(check_array($map_items)){
                             foreach ($map_items as $key => $value) {
                                 if($value['category_select']){
-                                    $term = get_term($value['category_select'],'category');                                        
-                                    $thumbnail_id = ubk_get_field('category_banner',$term);
-                                    
+                                    $term = get_term($value['category_select'],'category');                                       
+                                    $thumbnail_id = ubk_get_field('category_banner',$term);                                    
                                     ?>
                                     var item = Object.create(null);
                                     <?php
@@ -72,15 +78,14 @@
                                     item.title = "<?php echo $term->name; ?>";
                                     item.description = "<?php echo $term->description; ?>";
                                     item.link = "<?php echo get_term_link($term,'category'); ?>";
-                                    map_desktop.push(item);                                        
-
+                                    map_desktop.push(item);
                                     <?php
                                 }
                             }
                         }
-                    ?>
-                    
-                    $(".areaThumb #img-maps g#Group_60 >*:not(#Path_911)").on("click",function(){
+                    ?>   
+                    const icon_maker = '<?php echo get_template_part("assets/images/common/icon-maker",null); ?>';
+                    $(".areaThumb #img-maps g#Group_60 >*:not(#Path_911)").on("click",function(event){
                         var id = $(this).attr("id");
                         var is_changed = false;
                         for (var i = map_desktop.length - 1; i >= 0; i--) {
@@ -93,11 +98,39 @@
                             }
                         }
                         if(!is_changed){
-                            $(".areaThumb .areaBox").hide();
+                            $(".areaThumb .areaBox").fadeOut();
                         }else{
-                            $(".areaThumb .areaBox").show();
-                        }
+                            $(".areaThumb .areaBox").fadeIn();
+                        } 
+                        let top = $(this).position().top;
+                        let left =  $(this).position().left;
+
+                        let bottom = $(document).height() - ($(document).height() - top - $(this)[0].getBoundingClientRect().height);
+                        let right = $(document).width() - ($(document).width() - left - $(this)[0].getBoundingClientRect().width);
+
+                        let centerx = (left+right)/2 ; 
+                        let centery = (top+bottom)/2 ;
+
+                        let parent_top = $(".areaThumb").offset().top;
+                        let parent_left = $(".areaThumb").offset().left;
+
+
+
+
+                        let need_left = centerx - parent_left;
+                        let need_top = centery - parent_top;
+
+                        need_left -= 32/2;
+                        need_top -= 40-10;
+
+
+                        $(".areaThumb #icon_maker").remove();
+                        $(".areaThumb").append($(icon_maker)).fadeIn();
+
+                        $(".areaThumb #icon_maker").css("top",need_top + "px");
+                        $(".areaThumb #icon_maker").css("left",need_left + "px");
                     });
+                    
                 </script>
             </div>
             
