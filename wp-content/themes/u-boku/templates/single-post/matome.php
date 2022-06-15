@@ -5,12 +5,12 @@ if($matome):
     ob_start();
     ?>
     <ul class="matomeLst">
-        <li>
+        <!-- <li>
             <span class="matomeLst-label">店　名</span>
             <div class="matomeLst-cmt">
                 <p><?php echo $matome->post_title; ?></p>
             </div>
-        </li>
+        </li> -->
         <li>
             <span class="matomeLst-label">住　所</span>
             <div class="matomeLst-cmt">
