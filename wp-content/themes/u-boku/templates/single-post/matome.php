@@ -49,7 +49,7 @@ if($matome):
     ?>
     <div class="matome">        
         <div class="matome-title">
-            <h2 class="tlt f-Oswald">MATOME</h2>
+            <!-- <h2 class="tlt f-Oswald">MATOME</h2> -->
             <span class="label"><?php echo $matome->post_title; ?></span>
         </div>
         <?php if($matome_thumbnail){ ?>
