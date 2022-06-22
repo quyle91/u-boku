@@ -97,4 +97,5 @@ add_filter('body_class', 'ubk_add_slug_to_body_class'); // Add slug to body clas
 add_action( 'after_setup_theme', function(){
   add_image_size( 'ubk_thumbnail', 366, 207, true );
   add_image_size( 'ubk_thumbnail_slide', 900, 508, true );
+  add_image_size( 'ubk_matome_thumbnail', 215, 143, true );
 });

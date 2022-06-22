@@ -54,8 +54,8 @@ if($matome):
         </div>
         <?php if($matome_thumbnail){ ?>
         <div class="matomeWrap">
-            <div class="matomeWrap-thumb">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/data/img-detail03.png" alt="">
+            <div class="matomeWrap-thumb">                
+                <?php echo get_the_post_thumbnail( $matome, 'ubk_matome_thumbnail' ); ?>
             </div>
             <div class="matomeWrap-info">
                 <?php echo $list; ?>
