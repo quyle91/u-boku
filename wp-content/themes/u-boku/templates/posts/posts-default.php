@@ -1,7 +1,7 @@
 <li>
     <div class="news">
         <?php if(isset($args['index'])): ?>
-            <div class="lstNumber f-Oswald"><?php echo $args['index']; ?></div>
+            <div class="lstNumber f-Oswald" data-hit="<?php echo get_post_meta(get_the_ID(),'hit',true);?>"><?php echo $args['index']; ?></div>
         <?php endif; ?>
         <div class="lstNew-thumb thumbScale">
             <a href="<?php the_permalink(); ?>">
