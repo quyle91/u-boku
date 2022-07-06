@@ -62,6 +62,7 @@
                         $map_items = ubk_get_field('map_items');
                         if(check_array($map_items)){
                             foreach ($map_items as $key => $value) {
+
                                 if($value['category_select']){
                                     $term = get_term($value['category_select'],'category');                                       
                                     $thumbnail_id = ubk_get_field('category_banner',$term);                                    
@@ -78,6 +79,13 @@
                                     item.title = "<?php echo $term->name; ?>";
                                     item.description = "<?php echo $term->description; ?>";
                                     item.link = "<?php echo get_term_link($term,'category'); ?>";
+
+                                    <?php
+                                    $maker_position_fix_left = $value['maker_position_fix_left'] ? $value['maker_position_fix_left'] : 0;
+                                    $maker_position_fix_top = $value['maker_position_fix_top'] ? $value['maker_position_fix_top'] : 0;
+                                    ?>
+                                    item.maker_position_fix_left = <?php echo $maker_position_fix_left; ?>;
+                                    item.maker_position_fix_top = <?php echo $maker_position_fix_top; ?>;
                                     map_desktop.push(item);
                                     <?php
                                 }
@@ -88,6 +96,11 @@
                     $(".areaThumb #img-maps g#Group_60 >*:not(#Path_911)").on("click",function(event){
                         var id = $(this).attr("id");
                         var is_changed = false;
+
+                        let maker_position_fix_left = 0;
+                        let maker_position_fix_top = 0;
+
+
                         for (var i = map_desktop.length - 1; i >= 0; i--) {
                             if(map_desktop[i].title == id){
                                 is_changed = true;
@@ -95,6 +108,8 @@
                                 $(".areaThumb .areaBox .areaBox-info .areaBox-tlt").html(map_desktop[i].title);
                                 $(".areaThumb .areaBox .areaBox-info .areaBox-text").html(map_desktop[i].description);
                                 $(".areaThumb .areaBox .btnMore .more").attr("href",map_desktop[i].link);
+                                maker_position_fix_top = map_desktop[i].maker_position_fix_top;
+                                maker_position_fix_left = map_desktop[i].maker_position_fix_left;
                             }
                         }
                         if(!is_changed){
@@ -102,6 +117,7 @@
                         }else{
                             $(".areaThumb .areaBox").fadeIn();
                         } 
+
                         let top = $(this).position().top;
                         let left =  $(this).position().left;
 
@@ -122,6 +138,9 @@
 
                         need_left -= 32/2;
                         need_top -= 40-10;
+
+                        need_left += maker_position_fix_left;
+                        need_top += maker_position_fix_top;
 
 
                         $(".areaThumb #icon_maker").remove();

@@ -216,3 +216,14 @@ img{
 .pagination ul li span.current{
     background: #EDFDFF;
 }
+@media only screen and (min-width:  768px){
+  .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li span{
+    width: calc(28px + 16px);
+  }
+}
+body .more:hover .moreText {
+  display: block;
+}
+body .more:hover .moreHover {
+  display: none;
+}
