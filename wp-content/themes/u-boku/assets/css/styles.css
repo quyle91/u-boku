@@ -141,7 +141,7 @@ ul {
 .tagLst li a {
   border: 1px solid #374349;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #374349;
   border-radius: 25px;
   background: #fff;
@@ -174,7 +174,7 @@ ul {
   background: #4FBAC4;
 }
 .title .title-text {
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 8px;
 }
 @media (max-width: 991px) {
@@ -206,7 +206,7 @@ ul {
   height: 50px;
   color: #4FBAC4;
   background: #fff;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 0 70px 70px 0;
   border: 1px solid #4FBAC4;
   position: relative;
@@ -810,7 +810,7 @@ textarea.form-control {
 .header .headerWrap .headerShare ul li.uboku a {
   position: relative;
   color: #374349;
-  font-weight: 500;
+  font-weight: 700;
 }
 .header .headerWrap .headerShare ul li.uboku a:after {
   position: absolute;
@@ -915,6 +915,11 @@ textarea.form-control {
   margin: 0 3.5%;
   position: relative;
 }
+@media (max-width: 1300px) {
+  .gNav > ul > li {
+    margin: 0 2.8%;
+  }
+}
 @media (max-width: 1150px) {
   .gNav > ul > li {
     margin: 0 2.3%;
@@ -930,7 +935,7 @@ textarea.form-control {
 }
 .gNav > ul > li > a {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   display: block;
 }
 .gNav .gNav-sub {
@@ -973,7 +978,7 @@ textarea.form-control {
 }
 .gNav .gNav-sub .gNav-text {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 15px;
 }
 
@@ -1112,7 +1117,7 @@ textarea.form-control {
 .navFix .navThumb > ul > li.navThumb-info a {
   padding: 15px;
   display: block;
-  font-weight: 500;
+  font-weight: 700;
   color: #374349;
 }
 @media (max-width: 991px) {
@@ -1162,7 +1167,7 @@ textarea.form-control {
   padding: 15px 50px 15px 15px;
   display: block;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
   position: relative;
 }
@@ -1331,7 +1336,7 @@ textarea.form-control {
   border: none;
   font-size: 16px;
   color: #4FBAC4;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 20px;
   background: #fff;
   height: 50px;
@@ -1411,7 +1416,7 @@ textarea.form-control {
 }
 .searchSp .searchKey .searchKey-label {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 6px;
 }
 .searchSp .listKey {
@@ -1524,7 +1529,7 @@ textarea.form-control {
 .footer .footerWrap .footerNav ul li a {
   color: #374349;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1561,15 +1566,25 @@ textarea.form-control {
 .bannerTop {
   position: relative;
   min-height: 437px;
+}
+.bannerTop::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 100%;
+  height: 437px;
+  overflow: hidden;
   background: url("../images/data/bgBanner.png") no-repeat top left;
+  background-size: cover;
 }
 @media (max-width: 1320px) {
-  .bannerTop {
-    background-size: 100% 80%;
+  .bannerTop::after {
+    background-size: 100% 70%;
   }
 }
 @media (max-width: 767px) {
-  .bannerTop {
+  .bannerTop::after {
     background-size: 100% 224px;
   }
 }
@@ -1586,9 +1601,9 @@ textarea.form-control {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -1606,9 +1621,21 @@ textarea.form-control {
     padding-top: 57px;
   }
 }
+.bannerTop .sliderBanner .items .itemsWrap {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  max-width: 1600px;
+}
 .bannerTop .sliderBanner .items .bannerThumb {
   width: 57.7%;
   position: relative;
+  text-align: right;
 }
 @media (max-width: 767px) {
   .bannerTop .sliderBanner .items .bannerThumb {
@@ -1623,70 +1650,27 @@ textarea.form-control {
   position: absolute;
   right: -70px;
   top: -35px;
-  width: 140px;
 }
 @media (max-width: 1320px) {
   .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc {
     right: -50px;
-    width: 100px;
+    max-width: 100px;
   }
 }
 @media (max-width: 767px) {
   .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc {
     right: 0px;
-    width: 100%;
+    max-width: initial;
   }
 }
-.bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -3px;
-}
-.bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li {
-  width: 33.333333%;
-  color: #fff;
-  padding-left: 3px;
-  text-align: center;
-  font-weight: 500px;
-}
-@media (max-width: 767px) {
-  .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li {
-    width: 100%;
-    text-align: right;
-  }
-}
-@media (max-width: 767px) {
-  .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li {
-    padding-bottom: 3px;
-  }
-}
-.bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li span {
-  background: #4FBAC4;
-  display: inline-block;
-  padding: 10px 8px;
-  font-size: 20px;
-  line-height: 28px;
-}
-@media (max-width: 1320px) {
-  .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li span {
-    font-size: 15px;
-    line-height: 22px;
-  }
-}
-@media (max-width: 767px) {
-  .bannerTop .sliderBanner .items .bannerThumb .bannerThumb-desc ul li span {
-    font-size: 12px;
-    padding: 4px 12px;
-  }
+.bannerTop .sliderBanner .items .bannerThumb img {
+  width: 100%;
 }
 .bannerTop .sliderBanner .items .bannerInfo {
   width: 42.3%;
   position: relative;
-  padding-left: 4.1vw;
-  padding-right: 2.08vw;
+  padding-left: 4.7%;
+  padding-right: 2.7%;
   position: relative;
 }
 @media (max-width: 767px) {
@@ -1738,6 +1722,12 @@ textarea.form-control {
 .bannerTop .sliderBanner .items .bannerInfo .bannerHead .sub-title {
   margin-bottom: 4px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (max-width: 767px) {
   .bannerTop .sliderBanner .items .bannerInfo .bannerHead .sub-title {
@@ -1770,8 +1760,14 @@ textarea.form-control {
   position: relative;
   z-index: 4;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 60px;
+}
+@media (max-width: 1110px) {
+  .bannerTop .sliderBanner .items .bannerInfo .banner-desc {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
 }
 @media (max-width: 991px) {
   .bannerTop .sliderBanner .items .bannerInfo .banner-desc {
@@ -1867,7 +1863,7 @@ textarea.form-control {
   margin-top: 18px;
 }
 .news .lstNew-info .lstNew-title a {
-  font-weight: 500;
+  font-weight: 700;
   line-height: 28px;
 }
 .news .lstNew-info .lstNew-label {
@@ -1975,11 +1971,6 @@ textarea.form-control {
 .sectionArea .areaThumb {
   position: relative;
 }
-@media (max-width: 767px) {
-  .sectionArea .areaThumb {
-    display: none;
-  }
-}
 .sectionArea .areaThumb .areaBox {
   position: absolute;
   top: 15%;
@@ -2001,7 +1992,7 @@ textarea.form-control {
 }
 .sectionArea .areaThumb .areaBox-info .areaBox-tlt {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 991px) {
   .sectionArea .areaThumb .areaBox-info .areaBox-tlt {
@@ -2025,14 +2016,6 @@ textarea.form-control {
 @media (max-width: 991px) {
   .sectionArea .areaThumb .btnMore {
     margin-top: 20px;
-  }
-}
-.sectionArea .areaThumbSp {
-  display: none;
-}
-@media (max-width: 767px) {
-  .sectionArea .areaThumbSp {
-    display: block;
   }
 }
 .sectionArea .areaTitle {
@@ -2068,7 +2051,7 @@ textarea.form-control {
 }
 .sectionArea .areaTitle .areaTitle-text {
   line-height: 30px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
 }
 @media (max-width: 991px) {
@@ -2202,25 +2185,6 @@ textarea.form-control {
   position: relative;
   min-height: 440px;
   padding: 60px 0 12px 60px;
-  /*&::after {
-  	position: absolute;
-  	top: 0;
-  	left: -146px;
-  	content: "";
-  	height: 440px;
-  	width: 125px;
-  	background: url(../images/data/textTitle02.svg) no-repeat;
-  	@media (max-width: $viewport_mobile) {
-  		display: none;
-  	}
-  	@media (max-width: 1600px) {
-  		left: -94px;
-  		height: 316px;
-  		width: 100px;
-  		top: calc(50% - 158px);
-  		background-size: 90px auto;
-  	}
-  }*/
 }
 @media (max-width: 1600px) {
   .sectionFa .faContent {
@@ -2237,44 +2201,28 @@ textarea.form-control {
     margin-bottom: 30px;
   }
 }
-.sectionFa .faContent .titleFa {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  position: relative;
-  left: -320px;
-  top: -62px;
-}
-@media (max-width: 1600px) {
-  .sectionFa .faContent .titleFa {
-    left: -258px;
-  }
+.sectionFa .faContent::after {
+  position: absolute;
+  top: 0;
+  left: -146px;
+  content: "";
+  height: 440px;
+  width: 125px;
+  background: url(../images/data/textTitle02.svg) no-repeat;
 }
 @media (max-width: 767px) {
-  .sectionFa .faContent .titleFa {
+  .sectionFa .faContent::after {
     display: none;
   }
 }
-.sectionFa .faContent .titleFa .titleFa-title {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  position: absolute;
-  top: 150px;
-}
-.sectionFa .faContent .titleFa .titleFa-tlt {
-  font-size: 60px;
-  font-weight: 300;
-}
-.sectionFa .faContent .titleFa .titleFa-text {
-  font-weight: 500;
-  width: 24px;
-  font-size: 20px;
-  position: absolute;
-  top: 0;
-  left: 215px;
+@media (max-width: 1600px) {
+  .sectionFa .faContent::after {
+    left: -94px;
+    height: 316px;
+    width: 100px;
+    top: calc(50% - 158px);
+    background-size: 90px auto;
+  }
 }
 .sectionFa .sliderFactory .slick-slide {
   width: 360px;
@@ -2450,7 +2398,7 @@ textarea.form-control {
   padding: 4px;
   color: #4FBAC4;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
 }
 @media (max-width: 991px) {
@@ -2640,63 +2588,6 @@ textarea.form-control {
   }
 }
 
-/****/
-@media (max-width: 767px) {
-  .modal-backdrop {
-    background: url(../images/data/bg-body-modal.jpg) no-repeat;
-    background-size: cover;
-    opacity: 1 !important;
-  }
-}
-
-.modalMaps {
-  border: none;
-  background: #4FBAC4;
-}
-.modalMaps .modal-body {
-  position: relative;
-  padding: 30px 16px 16px;
-}
-.modalMaps .closeModal {
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
-.modalMaps .tohoku .tohoku-title {
-  font-size: 22px;
-  font-weight: 500;
-  color: #fff;
-  text-align: center;
-}
-.modalMaps .tohoku ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: -5px;
-  padding-top: 20px;
-}
-.modalMaps .tohoku ul li {
-  background: #fff;
-  padding: 5px 5px 10px;
-  margin-left: 5px;
-  margin-top: 5px;
-  border-radius: 5px;
-  width: calc(50% - 5px);
-}
-.modalMaps .tohoku ul li .tohoku-thumb {
-  border-radius: 5px;
-}
-.modalMaps .tohoku ul li .tohoku-tlt {
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 10px;
-  text-align: center;
-}
-
 .wrapContent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2827,7 +2718,7 @@ textarea.form-control {
 }
 .bar .barTitle .span-label {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .bar .newArr ul li {
   margin-top: 20px;
@@ -2885,7 +2776,7 @@ textarea.form-control {
 }
 .sectionArt .titleArt .tlt {
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: -20px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -2955,7 +2846,7 @@ textarea.form-control {
   width: 96px;
   border-right: 1px solid #fff;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3025,7 +2916,7 @@ textarea.form-control {
   text-align: center;
   display: block;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   color: #4FBAC4;
   border: 1px solid #4FBAC4;
   height: 80px;
@@ -3124,7 +3015,7 @@ textarea.form-control {
   padding: 10px;
   font-size: 22px;
   color: #4FBAC4;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .lstDetail .detailInfo .detailInfo-cmt .detailInfo-label {
@@ -3168,7 +3059,7 @@ textarea.form-control {
 }
 .detailBoku .detailBoku-info .tlt {
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .detailBoku .detailBoku-info .tlt {
@@ -3229,7 +3120,7 @@ textarea.form-control {
   }
 }
 .detaiContent .detaiContent-bold {
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .detaiContent .detaiContent-text,
@@ -3296,12 +3187,12 @@ textarea.form-control {
   font-weight: 300;
 }
 .tableContent .head .headTitle .label {
-  font-weight: 500;
+  font-weight: 700;
   padding-left: 16px;
 }
 .tableContent .head .headUp {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   padding-left: 32px;
   position: relative;
   min-height: 14px;
@@ -3371,7 +3262,7 @@ textarea.form-control {
 }
 .tableContent .cmt .cmtLst ul li .cmtText {
   padding-top: 3px;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .tableContent .cmt .cmtLst ul li .cmtText {
@@ -3400,7 +3291,7 @@ textarea.form-control {
   padding: 16px 24px;
   margin-bottom: 30px;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .forWork .forWork-title {
@@ -3418,11 +3309,11 @@ textarea.form-control {
 }
 .forWork .forWork-text .forWork-span {
   color: #4FBAC4;
-  font-weight: 500;
+  font-weight: 700;
 }
 .forWork .forWork-title-h3 {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   border-left: 5px solid #4FBAC4;
   padding: 6px 24px;
   margin: 50px 0 30px;
@@ -3436,7 +3327,7 @@ textarea.form-control {
 .forWork .forWork-title-h4 {
   margin: 50px 0 30px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3472,7 +3363,7 @@ textarea.form-control {
   font-weight: 300;
 }
 .matome .matome-title .label {
-  font-weight: 500;
+  font-weight: 700;
   padding-left: 12px;
 }
 .matome .matomeWrap {
@@ -3517,7 +3408,7 @@ textarea.form-control {
 }
 .matome .matomeLst li .matomeLst-label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   background: #fff;
   text-align: center;
   width: 70px;
@@ -3544,7 +3435,7 @@ textarea.form-control {
 .article .article-title {
   text-align: center;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
   display: block;
   margin-top: -16px;
@@ -3591,7 +3482,7 @@ textarea.form-control {
 .article .articleWrap .articleWrap-info .articleWrap-title {
   position: relative;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   padding-bottom: 24px;
 }
 @media (max-width: 767px) {
@@ -3658,7 +3549,7 @@ textarea.form-control {
   font-weight: 300;
 }
 .detailShare .shareTitle .label {
-  font-weight: 500;
+  font-weight: 700;
   padding-left: 12px;
 }
 .detailShare .shareWrap {
@@ -3693,7 +3584,7 @@ textarea.form-control {
   }
 }
 .detailShare .shareWrap .shareWrap-info .tlt {
-  font-weight: 500;
+  font-weight: 700;
   line-height: 32px;
 }
 @media (max-width: 767px) {
@@ -3765,7 +3656,7 @@ textarea.form-control {
   fill: #000;
 }
 .detailShare .shareItem ul li a .textLabel {
-  font-weight: 500;
+  font-weight: 700;
 }
 @media (max-width: 767px) {
   .detailShare .shareItem ul li a .textLabel {

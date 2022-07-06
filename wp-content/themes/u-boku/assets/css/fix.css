@@ -227,3 +227,16 @@ body .more:hover .moreText {
 body .more:hover .moreHover {
   display: none;
 }
+
+/*area*/
+.sectionArea .areaThumb{
+  display: none;
+}
+@media only screen and (min-width:  768px){
+  .sectionArea .areaThumb{
+    display: block;
+  }
+  .sectionArea .areaThumbSp{
+    display: none;
+  }
+}
