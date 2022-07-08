@@ -1971,6 +1971,11 @@ textarea.form-control {
 .sectionArea .areaThumb {
   position: relative;
 }
+@media (max-width: 767px) {
+  .sectionArea .areaThumb {
+    display: none;
+  }
+}
 .sectionArea .areaThumb .areaBox {
   position: absolute;
   top: 15%;
@@ -2016,6 +2021,14 @@ textarea.form-control {
 @media (max-width: 991px) {
   .sectionArea .areaThumb .btnMore {
     margin-top: 20px;
+  }
+}
+.sectionArea .areaThumbSp {
+  display: none;
+}
+@media (max-width: 767px) {
+  .sectionArea .areaThumbSp {
+    display: block;
   }
 }
 .sectionArea .areaTitle {
@@ -2587,7 +2600,61 @@ textarea.form-control {
     padding: 0 20px;
   }
 }
+/****/
+@media (max-width: 767px) {
+  .modal-backdrop {
+    background: url(../images/data/bg-body-modal.jpg) no-repeat 0 90%;
+    opacity: 1 !important;
+  }
+}
 
+.modalMaps {
+  border: none;
+  background: #4FBAC4;
+}
+.modalMaps .modal-body {
+  position: relative;
+  padding: 30px 16px 16px;
+}
+.modalMaps .closeModal {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.modalMaps .tohoku .tohoku-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+.modalMaps .tohoku ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: -5px;
+  padding-top: 20px;
+}
+.modalMaps .tohoku ul li {
+  background: #fff;
+  padding: 5px 5px 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  width: calc(50% - 5px);
+}
+.modalMaps .tohoku ul li .tohoku-thumb {
+  border-radius: 5px;
+}
+.modalMaps .tohoku ul li .tohoku-tlt {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
 .wrapContent {
   display: -webkit-box;
   display: -ms-flexbox;
