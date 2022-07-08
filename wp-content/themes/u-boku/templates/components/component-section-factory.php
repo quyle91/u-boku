@@ -1,12 +1,12 @@
 <div class="sectionFa">
     <div class="faWrap">
-        <div class="faContent">
+        <div class="faContent"><!-- 
             <div class="titleFa">
                 <div class="titleFa-title">
                     <h2 class="titleFa-tlt f-Oswald"><?php echo ubk_get_sub_field('section_title'); ?></h2>
                 </div>
                 <p class="titleFa-text"><?php echo ubk_get_sub_field('section_sub_title'); ?></p>
-            </div>
+            </div> -->
             
             <div class="title d-block d-md-none">
                 <h2 class="title-tlt f-Oswald"><?php echo ubk_get_sub_field('section_title'); ?></h2>

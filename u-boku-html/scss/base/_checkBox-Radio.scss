@@ -1,0 +1,89 @@
+/**** radio checkbox ****/
+.custom-control {
+  display: inline-flex;
+  min-height: 18px;
+  padding-left: 22px;
+  position: relative;
+  .custom-control-input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    &:disabled ~ .custom-control-indicator {
+      cursor: not-allowed;
+    }
+    &:disabled ~ .custom-control-description {
+      cursor: not-allowed;
+    }
+  }
+  .custom-control-description {
+    cursor: pointer;
+    color: #29324B;
+  }
+  .custom-control-indicator {
+    display: block;
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+  }
+  &.custom-checkbox {
+    // .custom-control-description {
+    //   color: #29324B;
+    // }
+    .custom-control-indicator {
+      width: 18px;
+      height: 18px;
+      background: url(../images/common/icon-checkBox.svg) no-repeat;
+      top: calc(50% - 9px);
+    }
+    .custom-control-input {
+      &:checked ~ .custom-control-indicator {
+        background: url(../images/common/icon-checkBox-checked.svg) no-repeat;
+        top: calc(50% - 9px);
+      }
+      &:checked ~ .custom-control-indicator + .custom-control-description {
+        color: #2874DD;
+      }
+    }
+  }
+  &.custom-radio {
+    // .custom-control-description {
+    //   color: #666D83;
+    // }
+    .custom-control-indicator {
+      background: url(../images/common/icon-radio.svg) no-repeat 50%;
+      width: 14px;
+      height: 14px;
+      top: calc(50% - 7px);
+    }
+    .custom-control-input {
+      &:checked ~ .custom-control-indicator {
+        background: url(../images/common/icon-radio-checked.svg) no-repeat 50%;
+        top: calc(50% - 7px);
+      }
+      &:checked ~ .custom-control-indicator + .custom-control-description {
+        color: #2874DD;
+      }
+    }
+  }
+}
+.custom-radio-change {
+  padding-left: 0;
+  .custom-control-description {
+    color: #666D83;
+    background: #fff;
+    border: 1px solid #B6B9C3;
+    padding: 10px 16px 10px 30px;
+    display: block;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .custom-control-indicator {
+    left: 8px;
+  }
+  .custom-control-input {
+    &:checked ~ .custom-control-indicator + .custom-control-description {
+      border: 1px solid #2874DD;
+      background: #f3f8fe;
+    }
+  }
+}

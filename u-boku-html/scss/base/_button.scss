@@ -1,0 +1,12 @@
+button {
+	cursor: pointer;
+	&:focus {
+		outline: none;
+	}
+}
+.btn {
+	font-weight: 500;
+	border-radius: 4px;
+	padding-top: 0;
+	padding-bottom: 0;
+}

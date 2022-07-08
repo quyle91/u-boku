@@ -1,0 +1,222 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+hgroup, menu, nav, section,
+time, mark, audio, video, button {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:top;
+	background:transparent;
+}
+html {
+	touch-action: manipulation;
+	-ms-touch-action: manipulation;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-ms-overflow-style: scrollbar;
+	-webkit-overflow-scrolling: touch;
+}
+*, 
+*:before, 
+*:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin:0;
+	padding:0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.f-Oswald {
+	font-family: 'Oswald', sans-serif;
+}
+
+body {
+	font-family: 'Noto Sans JP', sans-serif, Lato, Meiryo, "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic";
+	color: #374349;
+	width: 100%;
+	background-color: #fff;
+	font-size: 16px;
+	word-wrap: break-word;
+	line-height: 1.6;
+}
+
+/** --a-- **/
+a {
+	transition: all ease 0.3s;
+	text-decoration: none;
+	color: #374349;
+	&:hover {
+		text-decoration: none;
+		color: #374349;
+	}
+}
+.pc-only {
+  @media (max-width: $viewport_tablet) {
+    display: none;
+  }
+}
+
+.sp-only {
+  display: none;
+  @media (max-width: $viewport_tablet) {
+    display: block;
+  }
+}
+/** --img-- **/
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+/** --ul-- **/
+ul {
+	margin: 0;
+	list-style: none;
+}
+.thumbScale {
+	overflow: hidden;
+	img {
+		transition: 300ms all;
+		width: 100%;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+/** common ***/
+.wrapper {
+	@media (max-width: $viewport_tablet) {
+		padding-top: 63px;
+	}
+}
+.wrap {
+	max-width: 1320px;
+	padding: 0 60px;
+	margin: 0 auto;
+	@media (max-width: $viewport_tablet) {
+		padding: 0 20px;
+	}
+}
+.tagLst {
+	display: flex;
+	flex-wrap: wrap;
+	li {
+		margin-right: 10px;
+		&:last-child {
+			margin-right: 0;
+		}
+		a {
+			border: 1px solid #374349;
+			font-size: 12px;
+			font-weight: 700;
+			color: #374349;
+			border-radius: 25px;
+			background: #fff;
+			display: block;
+			padding: 6px 18px;
+		}
+	}
+}
+.title {
+	text-align: center;
+	.title-tlt {
+		font-size: 50px;
+		font-weight: 300;
+		position: relative;
+		padding-bottom: 20px;
+		@media (max-width: $viewport_tablet) {
+			font-size: 30px;
+			padding-bottom: 16px;
+		}
+		&::after {
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - 10px);
+			content: "";
+			width: 20px;
+			height: 2px;
+			background: #4FBAC4;
+		}
+	}
+	.title-text {
+		font-weight: 700;
+		margin-top: 8px;
+		@media (max-width: $viewport_tablet) {
+			font-size: 12px;
+		}
+	}
+}
+.btnMore {
+	&--mw250 {
+		a {
+			max-width: 250px;
+			margin: 0 auto;
+			@media (max-width: $viewport_mobile) {
+				max-width: 100%;
+			}
+		}
+	}
+}
+.more {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	color: #4FBAC4;
+	background: #fff;
+	font-weight: 700;
+	border-radius: 0 70px 70px 0;
+	border: 1px solid #4FBAC4;
+	position: relative;
+	padding: 0 50px;
+	transition: 300ms all;
+	width: 100%;
+	.moreItem {
+		position: absolute;
+		right: 26px;
+		top: calc(50% - 8px);
+		width: 8px;
+		height: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: 300ms all;
+		.svg {
+			path {
+				fill: #4FBAC4;
+			}
+		}
+	}
+	.moreHover {
+		display: none;
+	}
+	&:hover {
+		/*width: 80%;*/
+		background: #4FBAC4;
+		color: #fff;
+		.moreItem {
+			.svg {
+				path {
+					fill: #fff;
+				}
+			}
+		}
+		.moreText {
+			display: none;
+		}
+		.moreHover {
+			display: block;
+		}
+	}
+}

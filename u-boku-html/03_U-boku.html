@@ -1,0 +1,961 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="format-detection" content="telephone=no">
+<title>HTML</title>
+<!-- CSS -->
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/slick.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/styles.css" type="text/css" rel="stylesheet" media="all">
+<!-- JS -->
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/slick.js"></script>
+<script type="text/javascript" src="js/svg.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header">
+  	<div class="headerTop">
+    	<div class="wrap">
+      	<div class="headerWrap">
+        	<div class="headerSearch">
+          	<div class="search">
+            	<button class="btn"><img src="images/common/icon-search.svg" alt=""></button>
+            	<input class="form-control" type="text" placeholder="キーワードを入力する">
+            </div>
+          </div>
+          <div class="headerLogo">
+          	<a href="#"><img src="images/data/logo.svg" alt=""></a>
+          </div>
+          <div class="headerShare">
+          	<ul>
+            	<li class="uboku"><a href="#">U-bokuとは？</a></li>
+              <li><a href="#"><img src="images/common/icon-instagram.svg" alt=""></a></li>
+              <li><a href="#"><img src="images/common/icon-twitter.svg" alt=""></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="btnSearch">
+      	<button class="btn btn-search"><img src="images/common/icon-search.svg" alt=""></button>
+      </div>
+      <div class="btnNav">
+      	<button class="btn btn-menu">
+        	<span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <!-- -->
+      <div class="navFix">
+      	<button class="btn btn-closeNav"><img src="images/common/icon-closeNav.svg" alt=""></button>
+        <div class="wrap">
+        	<div class="contentWrap">
+          	<div class="contentLf">
+            	<div class="contentLogo">
+              	<a class="pc-only" href="#"><img src="images/data/logo-white.svg" alt=""></a>
+                <a class="sp-only" href="#"><img src="images/data/logo-white-sp.svg" alt=""></a>
+              </div>
+              <ul>
+                <li><a href="#"><img src="images/common/icon-instagram-white.svg" alt=""></a></li>
+                <li><a href="#"><img src="images/common/icon-twitter-white.svg" alt=""></a></li>
+              </ul>
+            </div>
+            <div class="contentRg">
+            	<div class="navThumb">
+              	<ul>
+                	<li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu.png" alt=""></div>
+                      <p class="navThumb-title">ローカル情報</p>
+                      <p class="navThumb-text">地域別ワーケーションの<br class="sp-only">おすすめ情報を紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu01.png" alt=""></div>
+                      <p class="navThumb-title">おすすめ施設</p>
+                      <p class="navThumb-text">ワーケーションに<br class="sp-only">おすすめの施設を紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu02.png" alt=""></div>
+                      <p class="navThumb-title">アクティビティ</p>
+                      <p class="navThumb-text">ワーケーションと一緒に<br class="sp-only">楽しめる体験を紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu03.png" alt=""></div>
+                      <p class="navThumb-title">体験記</p>
+                      <p class="navThumb-text">ワーケーションの<br class="sp-only">体験談を紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu04.png" alt=""></div>
+                      <p class="navThumb-title">支援金・助成金</p>
+                      <p class="navThumb-text">自治体が支援している助成<br class="sp-only">金の紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu05.png" alt=""></div>
+                      <p class="navThumb-title">移住</p>
+                      <p class="navThumb-text">地方移住におすすめの<br class="sp-only">地方を紹介。</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-info">
+                    <a href="#">
+                      <div class="navThumb-img thumbScale"><img src="images/data/img-menu06.png" alt=""></div>
+                      <p class="navThumb-title">特集</p>
+                      <p class="navThumb-text">ワーケーションに<br class="sp-only">有力な情報をPICKUP！</p>
+                    </a>
+                  </li>
+                  <li class="navThumb-lst">
+                  	<div class="navThumb-sub">
+                    	<ul>
+                        <li><a href="#">TOP</a></li>
+                        <li><a href="#">NEW ARRIVALS</a></li>
+                        <li><a href="#">人気の記事</a></li>
+                      </ul>
+                    	<ul>
+                        <li><a href="#">U-bokuとは？</a></li>
+                        <li><a href="#">キャンペーン</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="keywordsLst">
+                <span class="keywordsLst-label f-Oswald">KEYWORD</span>
+                <ul class="tagLst">
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">ワーケーション</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">ワーケーション</a></li>
+                  <li><a href="#">ワーケーション</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                  <li><a href="#">移住</a></li>
+                </ul>
+              </div>
+              <div class="shareSP sp-only">
+                <ul>
+                  <li><a href="#"><img src="images/common/icon-instagram-white.svg" alt=""></a></li>
+                  <li><a href="#"><img src="images/common/icon-twitter-white.svg" alt=""></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/.navFix-->
+      <!-- -->
+      <div class="searchSp">
+        <div class="searchTop">
+          <div class="wrap">
+            <div class="searchInput">
+              <input class="form-control" type="text" name="" placeholder="キーワードを入力する">
+              <button class="btn btn-search">
+              	<div class="btnWrap">
+                  <span class="searchFor">検索する</span>
+                  <span class="searchNew">新着記事一覧</span>
+                  <span class="btnItem"><img class="svg" src="images/common/icon-arrow-white.svg"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="wrap">
+        	<div class="searchKey">
+            <p class="searchKey-tlt f-Oswald">KEYWORD</p>
+            <p class="searchKey-label">キーワードから探す</p>
+          </div>
+          <div class="listKey">
+            <ul class="tagLst">
+              <li><a href="#">移住</a></li>
+              <li><a href="#">ワーケーション</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">ワーケーション</a></li>
+              <li><a href="#">ワーケーション</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+              <li><a href="#">移住</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!--/.searchSp-->
+    </div><!--/.headerTop-->
+    <div class="headerNav">
+      <div class="wrap">
+        <div class="gNav">
+          <ul>
+            <li><a href="#">ローカル情報</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu.png" alt=""></div>
+                  <p class="gNav-text">地域別ワーケーションのおすすめ情報を紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">おすすめ施設</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu01.png" alt=""></div>
+                  <p class="gNav-text">ワーケーションにおすすめの施設を紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">アクティビティ</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu02.png" alt=""></div>
+                  <p class="gNav-text">ワーケーションと一緒に楽しめる体験を紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">体験記</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu03.png" alt=""></div>
+                  <p class="gNav-text">ワーケーションの体験談を紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">支援金・助成金</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu04.png" alt=""></div>
+                  <p class="gNav-text">自治体が支援している助成金の紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">移住</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu05.png" alt=""></div>
+                  <p class="gNav-text">地方移住におすすめの地方を紹介。</p>
+                </a>
+              </div>
+            </li>
+            <li><a href="#">特集</a>
+            	<div class="gNav-sub">
+              	<a href="#">
+                	<div class="gNav-thumb thumbScale"><img src="images/data/img-menu06.png" alt=""></div>
+                  <p class="gNav-text">ワーケーションに有力な情報をPICKUP！</p>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div><!--/.gNav-->
+      </div>
+  	</div><!--/.headerNav-->
+  </div><!--/.header-->
+  <div class="main">
+		<div class="breadcrumb">
+    	<div class="wrap">
+      	<ul>
+        	<li><a href="#">TOP</a></li>
+          <li>ローカル情報</li>
+        </ul>
+      </div>
+    </div><!--/.breadcrumb-->   
+    <div class="wrap">
+      <div class="wrapContent">
+        <div class="wrapMain">
+        	<div class="title">
+            <h2 class="title-tlt f-Oswald">LOCAL</h2>
+            <p class="title-text">地域ワーケーション情報</p>
+          </div>
+          <div class="listLocal">
+          	<ul>
+            	<li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+              	<div class="news">
+                  <div class="lstNew-thumb thumbScale">
+                    <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                  </div>
+                  <div class="lstNew-info">
+                    <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                    <div class="lstNew-label">
+                      <span class="lstNew-date">2021.12.12</span>
+                      <span class="lstNew-span">U-boku編集部</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="pagination f-Oswald">
+          	<ul>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li>…</li>
+              <li><a href="#">38</a></li>
+              <li class="next"><a href="#"><img class="svg" src="images/common/icon-arrow-white.svg" alt=""></a></li>
+            </ul>
+          </div>
+        </div><!--/.wrapMain-->
+        <div class="wrapBar">
+        	<div class="thumbAdd">
+          	<ul>
+            	<li><a href="#"><img src="images/data/img-add.png" alt=""></a></li>
+            </ul>
+          </div>
+          <div class="bar">
+          	<div class="barTitle">
+            	<h2 class="tlt f-Oswald">NEW ARRIVALS</h2>
+              <span class="span-label">新着記事</span>
+            </div>
+            <div class="newArr">
+            	<ul>
+              	<li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bar">
+          	<div class="barTitle">
+            	<h2 class="tlt f-Oswald">EXPERIENCE</h2>
+              <span class="span-label">みんなのワーケーション体験</span>
+            </div>
+            <div class="newExp">
+            	<ul>
+              	<li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bar">
+          	<div class="barTitle">
+            	<h2 class="tlt f-Oswald">CATEGORY</h2>
+              <span class="span-label">人気カテゴリの週間ランキング</span>
+            </div>
+            <div class="newExp">
+            	<ul>
+              	<li>
+                  <div class="news">
+                  	<div class="lstNumber f-Oswald">1</div>
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                  	<div class="lstNumber f-Oswald">2</div>
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="news">
+                  	<div class="lstNumber f-Oswald">3</div>
+                    <div class="lstNew-thumb thumbScale">
+                      <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                    </div>
+                    <div class="lstNew-info">
+                      <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                      <div class="lstNew-label">
+                        <span class="lstNew-date">2021.12.12</span>
+                        <span class="lstNew-span">U-boku編集部</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="thumbAdd pt-5">
+          	<ul>
+            	<li><a href="#"><img src="images/data/img-add.png" alt=""></a></li>
+              <li><a href="#"><img src="images/data/img-add.png" alt=""></a></li>
+              <li><a href="#"><img src="images/data/img-add.png" alt=""></a></li>
+            </ul>
+          </div>
+        </div><!--/.wrapBar-->
+      </div><!--/.wrapContent-->
+    </div>
+    <div class="sectionArt">
+    	<div class="wrap">
+      	<div class="titleArt"><h2 class="tlt">関連記事</h2></div>
+        <div class="lstNew">
+          <ul>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">リモートワークに関する助成金について解説</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date f-Oswald">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb05.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【移住・不動産査定】地方での田舎暮らし。憧れと現実のギャップを解説！</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb06.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【子育て支援充実】千葉移住、まだ迷ってる？おすすめエリアをピックアップ解説！</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="btnMore btnMore--mw250">
+          <a class="more" href="#">
+            <span class="moreText">もっと見る</span>
+            <span class="moreHover">新着記事一覧</span>
+            <span class="moreItem"><img class="svg" src="images/common/icon-arrow-white.svg" alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sectionCate sectionCate--change">
+    	<div class="wrap">
+      	<div class="title">
+        	<h2 class="title-tlt f-Oswald">NEW ARRIVALS</h2>
+          <p class="title-text">新着記事</p>
+        </div>
+        <div class="lstNew">
+          <ul>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">リモートワークに関する助成金について解説</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date f-Oswald">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb05.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【移住・不動産査定】地方での田舎暮らし。憧れと現実のギャップを解説！</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb06.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【子育て支援充実】千葉移住、まだ迷ってる？おすすめエリアをピックアップ解説！</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb04.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【移住・不動産査定】地方移住に失敗！！その原因と対策について</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date f-Oswald">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb05.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">移住促進をしている地域は？支援制度など詳しく紹介</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="news">
+                <div class="lstNew-thumb thumbScale">
+                  <a href="#"><img src="images/data/imgThumb06.png" alt=""></a>
+                </div>
+                <div class="lstNew-info">
+                  <h3 class="lstNew-title"><a href="#">【長崎県長崎市】異国情緒あふれるまちで観光とワーケーションをしませんか？</a></h3>
+                  <div class="lstNew-label">
+                    <span class="lstNew-date">2021.12.12</span>
+                    <span class="lstNew-span">U-boku編集部</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="btnMore btnMore--mw250">
+          <a class="more" href="#">
+            新着記事一覧
+            <span class="moreItem"><img class="svg" src="images/common/icon-arrow-white.svg" alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div><!--/.sectionFa-->
+  </div><!--/.main-->
+  <div class="footer">
+  	<div class="backTop"><img src="images/common/icon-backTop.svg"></div>
+  	<div class="wrap">
+    	<div class="footerWrap">
+      	<div class="footerLogo"><a href="#"><img src="images/data/logo-footer.svg" alt=""></a></div>
+        <div class="footerNav">
+        	<ul>
+          	<li><a href="#">TOP</a></li>
+            <li><a href="#">NEW ARRIVALS</a></li>
+            <li><a href="#">人気の記事</a></li>
+            <li><a href="#">U-bokuとは？</a></li>
+            <li><a href="#">キャンペーン</a></li>
+            <li class="footerShare">
+            	<a href="#"><img src="images/common/icon-instagram.svg" alt=""></a>
+              <a href="#"><img src="images/common/icon-twitter.svg" alt=""></a>
+            </li>
+            <li class="footerCopyright f-Oswald">2022© uboku.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div><!--/.footer-->
+</div>
+<!-- modal -->
+</body>
+</html>

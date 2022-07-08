@@ -1,0 +1,39 @@
+.breadcrumb {
+	background: #EDFDFF;
+	display: block;
+	margin-bottom: 0;
+	padding: 14px 0;
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		li {
+			font-size: 14px;
+			padding-right: 38px;
+			position: relative;
+			@media (max-width: $viewport_tablet) {
+				font-size: 12px;
+			}
+			&::after {
+				position: absolute;
+				top: 7px;
+				right: 16px;
+				content: "";
+				width: 5px;
+				height: 9px;
+				background: url(../images/common/icon-breadcrumb.svg) no-repeat;
+				@media (max-width: $viewport_tablet) {
+					top: 6px;
+				}
+			}
+			&:last-child {
+				padding-right: 0;
+				&::after {
+					display: none;
+				}
+			}
+			a {
+				text-decoration: underline;
+			}
+		}
+	}
+}

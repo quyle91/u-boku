@@ -1,0 +1,134 @@
+table {
+	width: 100%;
+	tr {
+		th,
+		td {
+			padding: 10px 16px;
+			border: 1px solid #ccc;
+		}
+	}
+}
+/****/
+.tableBox {
+	tr {
+		&:last-child {
+			td {
+				@media (max-width: $viewport_mobile) {
+					border-bottom: 1px solid #ccc;
+				}
+			}
+		}
+		th,
+		td {
+			vertical-align: middle;
+			@media (max-width: $viewport_mobile) {
+				padding: 10px;
+				display: block;
+			}
+		}
+		th {
+			background: #F5F5F7;
+			font-size: 16px;
+			font-weight: 500;
+			color: #444;
+			@media (min-width: $viewport_mobile) {
+				color: #222;
+				padding: 10px 24px;
+				width: 1rem;
+				min-width: 240px;
+				border-right: none;
+			}
+			@media (max-width: $viewport_mobile) {
+				border-bottom: none;
+				font-size: 12px;
+				font-weight: 400;
+			}
+		}
+		td {
+			@media (min-width: $viewport_mobile) {
+				border-left: none;
+			}
+			@media (max-width: $viewport_mobile) {
+				border-top: none;
+				border-bottom: none;
+			}
+		}
+	}
+}
+/****/
+.scrollTbl {
+	overflow-x: auto;
+	min-height: 130px;
+}
+.tableInfo {
+	tr {
+		th,
+		td {
+			padding: 10px 7px;
+			border: none;
+			vertical-align: middle;
+		}
+	}
+	thead {
+		tr {
+			th {
+				white-space: nowrap;
+				font-size: 12px;
+				font-weight: 500;
+				color: #29324B;
+				border-bottom: 1px solid #29324B; 
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				border-bottom: 1px solid #E4E4E4; 
+			}
+		}
+	}
+}
+.thead-title {
+	display: flex;
+	.thead-item {
+		position: relative;
+		width: 16px;
+		height: 16px;
+		min-width: 16px;
+		margin-right: 8px;
+		margin-top: 3px;
+		.item {
+			cursor: pointer;
+			width: 16px;
+			height: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.dropdown-menu {
+			border: 1px solid #29324B;
+			width: 120px;
+			min-width: initial;
+			border-radius: 2px;
+			padding: 0;
+			overflow: hidden;
+			ul {
+				li {
+					border-bottom: 1px solid #ccc;
+					&:last-child {
+						border-bottom: none;
+					}
+					a {
+						padding: 10px 8px;
+						display: block;
+						font-size: 12px;
+						font-weight: normal;
+						&:hover {
+							background: #f4f7fd;
+						}
+					}
+				}
+			} 
+		}
+	}
+}
