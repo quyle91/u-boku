@@ -451,12 +451,12 @@ function ubk_get_blog_title(){
 
         $term = get_queried_object();        
         $category_banner = get_field('category_banner', $term);
-        $category_banner_mobile = get_field('category_banner_mobile', $term);
+        $category_banner_mobile = get_field('category_banner_copy', $term);
         if($category_banner){
             ?>
             <div class="thumbBanner">
                 <?php echo wp_get_attachment_image( $category_banner, 'full', false, ['class'=>'d-none d-md-block'] ); ?>
-                <?php echo wp_get_attachment_image( $category_banner, 'full', false, ['class'=>'d-block d-md-none'] ); ?>
+                <?php echo wp_get_attachment_image( $category_banner_mobile, 'full', false, ['class'=>'d-block d-md-none'] ); ?>
                 <div class="thumbCmt">
                     <span class="thumbCmt-label"><?php echo $term->name; ?></span>
                     <div class="thumbCmt-info">

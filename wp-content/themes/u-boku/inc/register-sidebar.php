@@ -1,8 +1,32 @@
 <?php 
 add_action( 'init',function(){
 	$args = array(
-		'name'          => __( 'Sidebar', 'text-domain' ),
+		'name'          => __( 'Blog Sidebar', 'text-domain' ),
 		'id'            => 'ubk_sidebar',
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<div class="bar %d" id="%s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="barTitle">',
+		'after_title'   => '</div>',
+	);	
+	register_sidebar( $args );	
+
+	$args = array(
+		'name'          => __( 'Single Sidebar', 'text-domain' ),
+		'id'            => 'ubk_single_sidebar',
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<div class="bar %d" id="%s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="barTitle">',
+		'after_title'   => '</div>',
+	);	
+	register_sidebar( $args );	
+
+	$args = array(
+		'name'          => __( 'Page Sidebar', 'text-domain' ),
+		'id'            => 'ubk_page_sidebar',
 		'description'   => '',
 		'class'         => '',
 		'before_widget' => '<div class="bar %d" id="%s">',
@@ -15,12 +39,23 @@ add_action( 'init',function(){
 
 add_filter('dynamic_sidebar_params', function( $params ) {
 	// get widget vars
-	$widget_name = $params[0]['widget_name'];
+	$widget_name = $params[0]['widget_name'];	
 	$widget_id = $params[0]['widget_id'];
 	// add color style to before_widget
 	$params[0]['before_title'] .= '<h2 class="tlt f-Oswald">';
 	$subtitle = get_field('widget_subtitle', 'widget_' . $widget_id);	
 	$span = "";
+
+	/*if($widget_name == 'U-boku Category'){
+		if(is_singular( 'post' )){
+			$post_default_category_sidebar = get_field('post_default_category_sidebar','options',true);
+			if(isset($post_default_category_sidebar[0])){
+				$post_default_category_sidebar = $post_default_category_sidebar[0];
+				$subtitle = $post_default_category_sidebar->name;
+			}
+		}
+	}*/	
+
 	if($subtitle){
 		$span = '<span class="span-label">'.$subtitle.'</span>';
 	}	

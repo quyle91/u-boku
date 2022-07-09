@@ -56,105 +56,88 @@
             <path id="宮城" d="M1415.773,305.968v5.573h-6.427V307.9h-10.118l2.149,2.149V319.5l-2.716,2.717v5.717h-4.074v1.935h6.927v3.578h3.524l2.563-2.562v-8.273l2.87-2.869h6.96V308.874l2.906-2.906Z" transform="translate(-211.357 -148.621)" fill="#bfc67c"/>
             <path id="福島" d="M1385.489,357.468h-4.243v-3.578h-6.417v3.4h-10.675l-3.687,3.688V365.3h-6.146v10.9h7.993l4.516-4.516h4.455l3.528,3.528v2.478l3.633,3.633,2.611-2.611H1387l3.71-3.71V357.626l-2.689-2.689Z" transform="translate(-191.599 -172.137)" fill="#bfc67c"/>
             <path id="Path_916" data-name="Path 916" d="M1473.68,49.868V40.9l3.039-3.039V29.53l-8.149,8.149h-16.835L1417.077,3.087l-5.4,3.355v7.979l3.056,3.056V37.382l-6.409,6.409V53.3l-6.387,6.388-8.51-8.51-4.753,4.754,3.65,3.65L1380.1,71.8v7.47l5.6,5.6v4.414l-5.433,5.433,5.093,5.093,7.64-7.64h9.846V88.95l-6.961-6.961h-6.027V72.821h6.536l4.329,4.329,4.753-4.754h11.926l8.361,8.361h5.518l9.486,9.486V78.594l16.1-16.1h10.155l4.005-4.006H1482.3Z" transform="translate(-204.251)" fill="#76bfe0"/>
-        </g>
-        <?php //echo "<pre>";print_r(ubk_get_field('map_items_mobile','options'));echo "</pre>"; ?>
+        </g>        
         <?php
         $data = ubk_get_field('map_items_mobile','options');
         if(check_array($data)){
             foreach ($data as $key => $value) {
+                if(!(isset($value['category_select']) and get_class($value['category_select']) == 'WP_Term')) return; 
                 ?>
-                <g id="Rectangle_<?php echo $key ?>" data-name="Rectangle <?php echo $key ?>" transform="translate(<?php echo isset($value['position_x'])? $value['position_x'] : ""; ?> <?php echo isset($value['position_y'])? $value['position_y'] : ""; ?>)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-                    <rect width="100" height="40" rx="20" stroke="none"/>
-                    <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-                </g>
-                <text 
-                    id="<?php echo $value['category_select']->name ?>" 
-                    transform="translate(<?php echo isset($value['text_position_x'])? $value['text_position_x'] : ""; ?> <?php echo isset($value['text_position_y'])? $value['text_position_y'] : ""; ?>)" 
-                    fill="#4fbac4" 
-                    ont-size="14" 
-                    font-family="NotoSansJP-Bold, Noto Sans JP" 
-                    font-weight="700" 
-                    letter-spacing="0.08em">
-                    <tspan x="<?php echo isset($value['span_position_x'])? $value['span_position_x'] : ""; ?>" y="0">
-                        <?php echo $value['category_select']->name ?>
-                    </tspan>
-                </text>
+                <a href="#exampleModal_sp_map_<?php echo $key;?>" data-toggle="modal">
+                    <g id="Rectangle_<?php echo $key ?>" data-name="Rectangle <?php echo $key ?>" transform="translate(<?php echo isset($value['position_x'])? $value['position_x'] : ""; ?> <?php echo isset($value['position_y'])? $value['position_y'] : ""; ?>)" fill="#fff" stroke="#4fbac4" stroke-width="1">
+                        <rect width="100" height="40" rx="20" stroke="none"/>
+                        <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
+                    </g>
+                    <text 
+                        id="<?php echo $value['category_select']->name ?>" 
+                        transform="translate(<?php echo isset($value['text_position_x'])? $value['text_position_x'] : ""; ?> <?php echo isset($value['text_position_y'])? $value['text_position_y'] : ""; ?>)" 
+                        fill="#4fbac4" 
+                        ont-size="14" 
+                        font-family="NotoSansJP-Bold, Noto Sans JP" 
+                        font-weight="700" 
+                        letter-spacing="0.08em">
+                        <tspan x="<?php echo isset($value['span_position_x'])? $value['span_position_x'] : ""; ?>" y="0">
+                            <?php echo $value['category_select']->name ?>
+                        </tspan>
+                    </text>
+                </a>
+                <?php
+                    add_action('wp_footer',function() use($key,$value){                        
+                        $term = $value['category_select'];
+                        ?>
+                            <div class="modal fade" id="exampleModal_sp_map_<?php echo $key;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal_sp_map_<?php echo $key;?>Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content modalMaps">
+                                        <div class="modal-body">
+                                            <button class="closeModal" data-dismiss="modal" aria-label="Close">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/icon-closeNav.svg" alt="">
+                                            </button>
+                                            <div class="tohoku">
+                                                <h2 class="tohoku-title"><?php echo $term->name; ?></h2>
+                                                <ul>
+                                                    <?php
+                                                    $term_query = new WP_Term_Query( array( 
+                                                        'taxonomy' => 'category', // <-- Custom Taxonomy name..
+                                                        'orderby'                => 'name',
+                                                        'order'                  => 'ASC',
+                                                        'child_of'               => 0,
+                                                        'parent'                 => $term->term_id,
+                                                        'fields'                 => 'all',
+                                                        'hide_empty'             => false,
+                                                    ) );
+                                                     
+                                                    //Render html
+                                                    if ( ! empty( $term_query->terms ) ) {
+                                                        foreach ( $term_query->terms as $childterm ) {
+                                                            ?>
+                                                            <li>
+                                                                <a href="<?php echo get_term_link($childterm,'category'); ?>">
+                                                                    <div class="tohoku-thumb thumbScale">
+                                                                        <?php                                                                         
+                                                                        $category_banner_mobile = get_field('category_banner_copy', $childterm);
+                                                                        echo wp_get_attachment_image( $category_banner_mobile, 'ubk_category_thumb_mb', false, ['class'=>'d-block d-md-none'] );
+                                                                        ?>
+                                                                    </div>
+                                                                    <h3 class="tohoku-tlt"><?php echo $childterm->name; ?></h3>
+                                                                </a>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                    });
+                ?>
                 <?php
             }
         }
         ?>
-        <!-- <g id="Rectangle_16" data-name="Rectangle 16" transform="translate(239 2001)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="北海道" transform="translate(289 2026.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-22.12" y="0">北海道</tspan></text>
-
-
-
-        <g id="Rectangle_62" data-name="Rectangle 62" transform="translate(168 2122)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="東北" transform="translate(218 2147.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">東北</tspan></text>
-
-
-
-        <g id="Rectangle_63" data-name="Rectangle 63" transform="translate(79 2180)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="関西" transform="translate(129 2205.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">関西</tspan></text>
-
-
-
-        <g id="Rectangle_66" data-name="Rectangle 66" transform="translate(20 2341)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="九州" transform="translate(70 2366.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">九州</tspan></text>
-
-
-
-        <g id="Rectangle_68" data-name="Rectangle 68" transform="translate(105 2297)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="四国" transform="translate(155 2322.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">四国</tspan></text>
-
-
-
-        <g id="Rectangle_69" data-name="Rectangle 69" transform="translate(255 2340)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="沖縄" transform="translate(305 2365.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">沖縄</tspan></text>
-
-
-
-        <g id="Rectangle_67" data-name="Rectangle 67" transform="translate(9 2234)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="中国" transform="translate(59 2259.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">中国</tspan></text>
-
-
-
-        <g id="Rectangle_64" data-name="Rectangle 64" transform="translate(267 2194)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="関東" transform="translate(317 2219.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">関東</tspan></text>
-
-
-
-        <g id="Rectangle_65" data-name="Rectangle 65" transform="translate(217 2264)" fill="#fff" stroke="#4fbac4" stroke-width="1">
-            <rect width="100" height="40" rx="20" stroke="none"/>
-            <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
-        </g>
-        <text id="中部" transform="translate(267 2289.5)" fill="#4fbac4" font-size="14" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700" letter-spacing="0.08em"><tspan x="-14.56" y="0">中部</tspan></text> -->
-
-
-
     </g>
 </svg>
 <script type="text/javascript">

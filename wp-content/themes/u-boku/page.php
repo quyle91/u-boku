@@ -35,7 +35,7 @@ get_header(); ?>
                 }
                 ?>
             </div>
-            <?php get_sidebar(); ?>
+            <?php get_sidebar('page'); ?>
         </div><!--/.wrapContent-->
     </div>
 </div>

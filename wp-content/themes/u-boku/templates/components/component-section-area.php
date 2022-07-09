@@ -1,4 +1,4 @@
-<div class="sectionArea">
+<div class="sectionArea" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="wrap">
         <div class="area">
             <div class="areaTitle">
@@ -148,15 +148,13 @@
 
                         $(".areaThumb #icon_maker").css("top",need_top + "px");
                         $(".areaThumb #icon_maker").css("left",need_left + "px");
-                    });
-                    
+                    });                    
                 </script>
             </div>
             
             <div class="areaThumbSp text-center">
-                <a href="#exampleModal" data-toggle="modal">
-                    <?php echo get_template_part("assets/images/data/img-maps-sp",null); ?>                    
-                </a>
+                <?php echo get_template_part("assets/images/data/img-maps-sp",null); ?>
+                <!-- <a href="#exampleModal" data-toggle="modal"></a> -->
             </div>
         </div>
     </div>

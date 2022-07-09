@@ -1,4 +1,4 @@
-<div class="bannerTop">
+<div class="bannerTop" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="bannerWrap">
         <div class="bannerContent">
             <div class="slider sliderBanner">

@@ -1,4 +1,4 @@
-<div class="sectionNews">
+<div class="sectionNews" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="wrap">
         <div class="title">
             <h2 class="title-tlt f-Oswald"><?php echo ubk_get_sub_field('section_title'); ?></h2>

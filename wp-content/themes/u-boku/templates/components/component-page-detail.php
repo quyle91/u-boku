@@ -1,4 +1,4 @@
-<div class="detail">
+<div class="detail" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="detailThumb">
         <?php 
         echo wp_get_attachment_image( ubk_get_sub_field('page_detail_thumbnail'), 'full',false,['class'=>'d-none d-md-block']);

@@ -3,7 +3,7 @@ img{
 }
 .bar .barTitle{
     padding: 0;
-    margin: 60px 0 14px;
+    margin-bottom: 14px;
 }
 /*fix blog height*/
 .fixedheight{
@@ -185,7 +185,7 @@ img{
 /*widget*/
 .wrapBar .bar,
 .wrapBar .bar .gallery .gallery-item{
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 /*pagination*/
@@ -238,5 +238,20 @@ body .more:hover .moreHover {
   }
   .sectionArea .areaThumbSp{
     display: none;
+  }
+}
+body .thumbBanner .thumbCmt .thumbCmt-label{
+  width: unset ;
+  padding-right:  10px;
+}
+body .thumbBanner .thumbCmt .thumbCmt-info{
+  width:  unset;
+}
+@media only screen and (min-width:  768px){
+  body .thumbBanner .thumbCmt .thumbCmt-label{
+    padding-right:  10px;
+  }
+  body .thumbBanner .thumbCmt{
+    flex-wrap: nowrap;
   }
 }

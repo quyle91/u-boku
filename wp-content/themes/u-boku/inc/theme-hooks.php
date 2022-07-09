@@ -15,6 +15,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('ubk-slick', get_template_directory_uri()."/assets/js/slick.js", ['jquery'], null, false);
     wp_enqueue_script('ubk-svg', get_template_directory_uri()."/assets/js/svg.js", ['jquery'], null, false);
     wp_enqueue_script('ubk-common', get_template_directory_uri()."/assets/js/common.js", ['jquery'], null, false);
+    wp_enqueue_script('ubk-fix', get_template_directory_uri()."/assets/js/fix.js", ['jquery'], null, false);
 
 });
 

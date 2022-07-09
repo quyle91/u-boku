@@ -1,4 +1,4 @@
-<div class="lstDetail">
+<div class="lstDetail" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="detailTitle-fl text-center">
         <h2 class="d-none d-md-block"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/data/text-title-detail-pc01.svg" alt=""></h2>
         <h2 class="d-block d-md-none"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/data/text-title-detail-sp01.svg" alt=""></h2>

@@ -11,7 +11,7 @@ class Ubk_New_Arrivals extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'ubk_new_arrivals', // Base ID
-            'UBk News Arrivals', // Name
+            'U-boku News Arrivals', // Name
             array( 'description' => __( 'Show News Arrivals', 'text_domain' ), ) // Args
         );
     }

@@ -11,7 +11,7 @@ class Ubk_New_Experience extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'ubk_new_experience', // Base ID
-            'UBk Experience', // Name
+            'U-boku Experience', // Name
             array( 'description' => __( 'Show News Experience', 'text_domain' ), ) // Args
         );
     }

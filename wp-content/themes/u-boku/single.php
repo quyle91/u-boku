@@ -52,7 +52,7 @@ get_header(); ?>
                 }
                 ?>
             </div>
-            <?php get_sidebar(); ?>
+            <?php get_sidebar('single'); ?>
         </div><!--/.wrapContent-->
     </div>
     

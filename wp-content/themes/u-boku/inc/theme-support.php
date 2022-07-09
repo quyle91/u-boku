@@ -98,4 +98,5 @@ add_action( 'after_setup_theme', function(){
   add_image_size( 'ubk_thumbnail', 366, 207, true );
   add_image_size( 'ubk_thumbnail_slide', 900, 508, true );
   add_image_size( 'ubk_matome_thumbnail', 215, 143, true );
+  add_image_size( 'ubk_category_thumb_mb', 221, 92, true );
 });

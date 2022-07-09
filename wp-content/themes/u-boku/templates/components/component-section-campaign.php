@@ -1,4 +1,4 @@
-<div class="sectionCamp">
+<div class="sectionCamp" <?php echo ubk_get_sub_field('section_id_attribute')? 'id="'.ubk_get_sub_field('section_id_attribute').'"' : ""; ?>>
     <div class="wrap">
         <div class="campContent">
             <div class="title">

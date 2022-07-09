@@ -11,7 +11,7 @@ class Ubk_Category extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'ubk_category', // Base ID
-            'UBk Category', // Name
+            'U-boku Category', // Name
             array( 'description' => __( 'Show News Category', 'text_domain' ), ) // Args
         );
     }
@@ -32,18 +32,30 @@ class Ubk_Category extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo $before_title . $title . $after_title;
         }
-        // widget content 
-
+        // widget content         
         $args = array(
             'post_type'   => 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 3
+            'posts_per_page' => 3,            
         );
 
         $category_select = $instance['category_select'];
         if(isset($category_select) and $category_select){
             $args['category__in'] = [$category_select];
         }
+
+        if(is_singular('post')){
+            $args['post__not_in'] = [get_the_ID()];
+        }else{
+            $args['posts_per_page'] = 6;
+            $term_obj = get_queried_object();            
+            if(get_class($term_obj) == 'WP_Term'){
+                if(!isset($args['category__in'])){
+                    $args['category__in'] = [$term_obj->term_id];
+                }
+            }
+        }
+
         $args = apply_filters( 'ubk_category_query_args', $args );
         $query = new WP_Query( $args );        
         if ( $query->have_posts() ) { 
