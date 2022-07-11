@@ -20,14 +20,25 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'u-boku' );
-define( 'DB_USER', 'root' );
-define( 'DB_PASSWORD', '' );
-define( 'DB_HOST', 'localhost' );
+define( 'DB_NAME', 'default' );
+
+/** Database username */
+define( 'DB_USER', 'user' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'user' );
+
+/** Database hostname */
+define( 'DB_HOST', 'db' );
+
+/** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
+
+/** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-/*define( 'WP_HOME', 'http://u-boku.docksal.site/' );
-define( 'WP_SITEURL', 'http://u-boku.docksal.site/' );*/
+
+define( 'WP_HOME', 'http://u-boku.docksal.site/' );
+define( 'WP_SITEURL', 'http://u-boku.docksal.site/' );
 /**#@+
  * Authentication unique keys and salts.
  *
