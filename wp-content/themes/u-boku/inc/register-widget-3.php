@@ -27,6 +27,24 @@ class Ubk_Category extends WP_Widget {
     public function widget( $args, $instance ) {
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
+
+        if(is_singular('post')){
+            
+        }else{            
+            $term_obj = get_queried_object();
+            if(!$title){
+                if(get_class($term_obj) == 'WP_Term'){
+                    if($term_obj->taxonomy == 'category'){
+                        $title = 'CATEGORY';
+                    }
+                    if($term_obj->taxonomy == 'post_tag'){
+                        $title = 'KEYWORD';
+                    }
+                    
+                }
+            }
+        }
+
  
         echo $before_widget;
         if ( ! empty( $title ) ) {
@@ -36,7 +54,7 @@ class Ubk_Category extends WP_Widget {
         $args = array(
             'post_type'   => 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 3,            
+            'posts_per_page' => $instance['posts_per_page'],            
         );
 
         $category_select = $instance['category_select'];
@@ -46,13 +64,19 @@ class Ubk_Category extends WP_Widget {
 
         if(is_singular('post')){
             $args['post__not_in'] = [get_the_ID()];
-        }else{
-            $args['posts_per_page'] = 6;
-            $term_obj = get_queried_object();            
+        }else{            
+            $term_obj = get_queried_object();       
+            
             if(get_class($term_obj) == 'WP_Term'){
-                if(!isset($args['category__in'])){
-                    $args['category__in'] = [$term_obj->term_id];
+                if($term_obj->taxonomy == 'category'){
+                    if(!isset($args['category__in'])){
+                        $args['category__in'] = [$term_obj->term_id];
+                    }
                 }
+                if($term_obj->taxonomy == 'post_tag'){
+                    $args['tag__in'] = [$term_obj->term_id];
+                }
+                
             }
         }
 
@@ -100,7 +124,12 @@ class Ubk_Category extends WP_Widget {
         }
         ?>
         <p>
-            <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'title' ); ?>">
+                <?php _e( 'Title:' ); ?>
+                </br>
+                Leave empty for auto detect current category
+            </label>
+
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
      	</p>
 
@@ -138,6 +167,18 @@ class Ubk_Category extends WP_Widget {
 	            }
          	?>
      	</p>
+
+        <?php if ( isset( $instance[ 'posts_per_page' ] ) ) {
+            $posts_per_page = $instance[ 'posts_per_page' ];
+        }
+        else {
+            $posts_per_page = 3;
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_name( 'posts_per_page' ); ?>"><?php _e( 'Posts per page:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'posts_per_page' ); ?>" name="<?php echo $this->get_field_name( 'posts_per_page' ); ?>" type="number" value="<?php echo esc_attr( $posts_per_page ); ?>" />
+        </p>
     <?php
     }
  
@@ -154,6 +195,7 @@ class Ubk_Category extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['posts_per_page'] = ( !empty( $new_instance['posts_per_page'] ) ) ? strip_tags( $new_instance['posts_per_page'] ) : '';
         $instance['category_select'] = ( !empty( $new_instance['category_select'] ) ) ? strip_tags( $new_instance['category_select'] ) : '';
         return $instance;
     }

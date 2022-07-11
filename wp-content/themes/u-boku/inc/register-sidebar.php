@@ -46,18 +46,22 @@ add_filter('dynamic_sidebar_params', function( $params ) {
 	$subtitle = get_field('widget_subtitle', 'widget_' . $widget_id);	
 	$span = "";
 
-	/*if($widget_name == 'U-boku Category'){
+	if($widget_name == 'U-boku Category'){
 		if(is_singular( 'post' )){
-			$post_default_category_sidebar = get_field('post_default_category_sidebar','options',true);
-			if(isset($post_default_category_sidebar[0])){
-				$post_default_category_sidebar = $post_default_category_sidebar[0];
-				$subtitle = $post_default_category_sidebar->name;
-			}
+			//nothing
+		}else{
+			$term_obj = get_queried_object();       
+            if(!is_admin()){
+	            if(get_class($term_obj) == 'WP_Term'){
+	            	$subtitle = $term_obj->name;
+	            }
+        	}
 		}
-	}*/	
+
+	}	
 
 	if($subtitle){
-		$span = '<span class="span-label">'.$subtitle.'</span>';
+		$span = '<span class="span-label">'.strtoupper($subtitle).'</span>';
 	}	
 	$params[0]['after_title'] = '</h2>'.$span.$params[0]['after_title'];
 	// return

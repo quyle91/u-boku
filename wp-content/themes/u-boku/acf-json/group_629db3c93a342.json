@@ -7,7 +7,7 @@
             "label": "Widget Subtitle",
             "name": "widget_subtitle",
             "type": "text",
-            "instructions": "",
+            "instructions": "Auto detect current category if in category",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -40,5 +40,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654503697
+    "modified": 1657553355
 }
