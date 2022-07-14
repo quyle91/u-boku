@@ -26,7 +26,7 @@
                                 <p class="areaBox-text"><?php echo $term->description; ?></p>
                             </div>
                             <div class="btnMore">
-                                <a class="more" href="#">
+                                <a class="more" href="<?php echo get_term_link($term,'category'); ?>">
                                     <span class="moreText">この地域の記事一覧</span>
                                     <span class="moreHover">新着記事一覧</span>
                                     <span class="moreItem">
@@ -104,6 +104,7 @@
                         for (var i = map_desktop.length - 1; i >= 0; i--) {
                             if(map_desktop[i].title == id){
                                 is_changed = true;
+                                $(".areaThumb .areaBox a").attr("href",map_desktop[i].link);
                                 $(".areaThumb .areaBox a img").attr("src",map_desktop[i].thumbnail);
                                 $(".areaThumb .areaBox .areaBox-info .areaBox-tlt").html(map_desktop[i].title);
                                 $(".areaThumb .areaBox .areaBox-info .areaBox-text").html(map_desktop[i].description);

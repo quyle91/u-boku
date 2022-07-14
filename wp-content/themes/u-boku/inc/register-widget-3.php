@@ -69,9 +69,17 @@ class Ubk_Category extends WP_Widget {
             
             if(get_class($term_obj) == 'WP_Term'){
                 if($term_obj->taxonomy == 'category'){
-                    if(!isset($args['category__in'])){
-                        $args['category__in'] = [$term_obj->term_id];
-                    }
+                    //$args['category__in'] = [$term_obj->term_id];
+                    $args['tax_query'] = [
+                        'relation'=> 'AND',
+                        [
+                            'taxonomy'=>'category',
+                            'field'=>'term_id',
+                            'terms'=> [$term_obj->term_id],
+                            'include_children'=>true,
+                            'operator'=> 'IN'
+                        ]
+                    ];
                 }
                 if($term_obj->taxonomy == 'post_tag'){
                     $args['tag__in'] = [$term_obj->term_id];
