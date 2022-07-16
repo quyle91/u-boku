@@ -61,9 +61,11 @@
         $data = ubk_get_field('map_items_mobile','options');
         if(check_array($data)){
             foreach ($data as $key => $value) {
-                if(!(isset($value['category_select']) and get_class($value['category_select']) == 'WP_Term')) return; 
+                if(!(is_object($value['category_select']) and  get_class($value['category_select']) == 'WP_Term')) break;
+                $link = '#exampleModal_sp_map_'.$key;
+                if(empty($value['children'])) $link = get_term_link( $value['category_select'], 'post_tag' );
                 ?>
-                <a href="#exampleModal_sp_map_<?php echo $key;?>" data-toggle="modal">
+                <a href="<?php echo $link; ?>" data-toggle="modal">
                     <g id="Rectangle_<?php echo $key ?>" data-name="Rectangle <?php echo $key ?>" transform="translate(<?php echo isset($value['position_x'])? $value['position_x'] : ""; ?> <?php echo isset($value['position_y'])? $value['position_y'] : ""; ?>)" fill="#fff" stroke="#4fbac4" stroke-width="1">
                         <rect width="100" height="40" rx="20" stroke="none"/>
                         <rect x="0.5" y="0.5" width="99" height="39" rx="19.5" fill="none"/>
@@ -95,9 +97,32 @@
                                             <div class="tohoku">
                                                 <h2 class="tohoku-title"><?php echo $term->name; ?></h2>
                                                 <ul>
+                                                    <?php 
+
+                                                    foreach ( (array)$value['children'] as $childterm ) {
+                                                        if(!$childterm['tags']) break;
+                                                        $childterm = $childterm['tags'];
+                                                        $childterm = get_term($childterm,'post_tag');
+                                                        ?>
+                                                        <li>
+                                                            <a href="<?php echo get_term_link($childterm,'post_tag'); ?>">
+                                                                <div class="tohoku-thumb thumbScale">
+                                                                    <?php                                                                         
+                                                                    $category_banner_mobile = get_field('category_banner_copy', $childterm);
+                                                                    echo wp_get_attachment_image( $category_banner_mobile, 'ubk_category_thumb_mb', false, ['class'=>'d-block d-md-none'] );
+                                                                    ?>
+                                                                </div>
+                                                                <h3 class="tohoku-tlt"><?php echo $childterm->name; ?></h3>
+                                                            </a>
+                                                        </li>
+                                                        <?php
+                                                    }
+
+
+                                                    ?>
                                                     <?php
-                                                    $term_query = new WP_Term_Query( array( 
-                                                        'taxonomy' => 'category', // <-- Custom Taxonomy name..
+                                                    /*$term_query = new WP_Term_Query( array( 
+                                                        'taxonomy' => 'post_tag', // <-- Custom Taxonomy name..
                                                         'orderby'                => 'name',
                                                         'order'                  => 'ASC',
                                                         'child_of'               => 0,
@@ -111,7 +136,7 @@
                                                         foreach ( $term_query->terms as $childterm ) {
                                                             ?>
                                                             <li>
-                                                                <a href="<?php echo get_term_link($childterm,'category'); ?>">
+                                                                <a href="<?php echo get_term_link($childterm,'post_tag'); ?>">
                                                                     <div class="tohoku-thumb thumbScale">
                                                                         <?php                                                                         
                                                                         $category_banner_mobile = get_field('category_banner_copy', $childterm);
@@ -123,7 +148,7 @@
                                                             </li>
                                                             <?php
                                                         }
-                                                    }
+                                                    }*/
                                                     ?>
                                                 </ul>
                                             </div>

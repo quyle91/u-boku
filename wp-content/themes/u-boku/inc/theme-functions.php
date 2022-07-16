@@ -446,7 +446,7 @@ function ubk_get_blog_title(){
         $page_for_posts_obj = get_post($blog_id);
         $title = $page_for_posts_obj->post_title;
 
-    } elseif ( is_category() ){
+    } elseif ( is_category() or is_tag() ){
         $title = single_cat_title( '', false );
 
         $term = get_queried_object();        
@@ -469,9 +469,6 @@ function ubk_get_blog_title(){
             <?php
             return;
         }
-
-    } elseif ( is_tag() ){
-        $title = single_tag_title( '', false );        
 
     } elseif ( is_search() ){
         $title = get_search_query();

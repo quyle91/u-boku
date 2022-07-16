@@ -241,7 +241,7 @@ body .more:hover .moreHover {
   }
 }
 body .thumbBanner .thumbCmt .thumbCmt-label{
-  width: unset ;
+  /*width: unset ;*/
   padding-right:  10px;
 }
 body .thumbBanner .thumbCmt .thumbCmt-info{
@@ -254,4 +254,30 @@ body .thumbBanner .thumbCmt .thumbCmt-info{
   body .thumbBanner .thumbCmt{
     flex-wrap: nowrap;
   }
+}
+.areaBox.not-fired img{
+  display: none;
+}
+.areaBox.not-fired .placeholder{
+  background:  #ebebeb;
+  width:  100%;
+  padding-top:  56%;
+  display: block !important;
+}
+/*#img-maps g#Group_60 .active,
+#img-maps g#Group_60 .active path,*/
+#img-maps g#Group_60 >*:not(#Path_911):hover,
+#img-maps g#Group_60 >*:not(#Path_911):hover path{
+    fill: #4fbac4;
+    cursor: pointer;
+}
+.areaThumb{
+    position: relative;
+}
+.areaThumb #icon_maker{
+    width:  32px;
+    position: absolute;
+}
+.sectionArea .areaThumb .areaBox{
+  z-index: 1;
 }

@@ -59,3 +59,127 @@
         </g>
     </g>
 </svg>
+<div class="areaBox not-fired">
+    <div class="areaBox-img thumbScale">
+        <a href="">
+            <img width="366" height="207" src="#" class="attachment-ubk_thumbnail size-ubk_thumbnail" alt="placeholder image">
+            <div class="placeholder" style="display: none;"></div>
+        </a>
+    </div>                    
+    <div class="areaBox-info">
+        <h3 class="areaBox-tlt"></h3>
+        <p class="areaBox-text"></p>
+    </div>
+    <div class="btnMore">
+        <a class="more" href="">
+            <span class="moreText">この地域の記事一覧</span>
+            <span class="moreHover">新着記事一覧</span>
+            <span class="moreItem">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.763" height="12.938" viewBox="0 0 7.763 12.938" class="svg replaced-svg"> <g id="icons_Q2" data-name="icons Q2" transform="translate(7.763 12.938) rotate(180)"> <path id="Path_560" data-name="Path 560" d="M2.328,6.469l5.125-4.9A.859.859,0,0,0,7.761.855a.871.871,0,0,0-.4-.67A1.051,1.051,0,0,0,6.051.277L.3,5.822a.852.852,0,0,0,0,1.294l5.753,5.545a1.051,1.051,0,0,0,1.305.092.871.871,0,0,0,.4-.67.859.859,0,0,0-.308-.716Z" fill="#fff"></path> </g> </svg> 
+            </span>
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+    if($(window).width()>=768){
+        console.log("load map pc");
+        const map_desktop = [];
+        <?php
+            //register box info
+            $map_items = ubk_get_field('map_items');
+            if(check_array($map_items)){
+                foreach ($map_items as $key => $value) {
+
+                    if($value['category_select']){
+                        $term = get_term($value['category_select'],'post_tag');                                       
+                        $thumbnail_id = ubk_get_field('category_banner',$term);                                    
+                        ?>
+                        var item = Object.create(null);
+                        <?php
+                        $thumbnail_url_image = wp_get_attachment_image_src($thumbnail_id,'ubk_thumbnail');
+                        $thumbnail_url = "";
+                        if(isset($thumbnail_url_image[0])){
+                            $thumbnail_url = $thumbnail_url_image[0];
+                        }
+                        ?>
+                        item.thumbnail = "<?php echo $thumbnail_url; ?>";
+                        item.title = "<?php echo $term->name; ?>";
+                        item.description = "<?php echo $term->description; ?>";
+                        item.link = "<?php echo get_term_link($term,'post_tag'); ?>";
+
+                        <?php
+                        $maker_position_fix_left = $value['maker_position_fix_left'] ? $value['maker_position_fix_left'] : 0;
+                        $maker_position_fix_top = $value['maker_position_fix_top'] ? $value['maker_position_fix_top'] : 0;
+                        ?>
+                        item.maker_position_fix_left = <?php echo $maker_position_fix_left; ?>;
+                        item.maker_position_fix_top = <?php echo $maker_position_fix_top; ?>;
+                        map_desktop.push(item);
+                        <?php
+                    }
+                }
+            }
+        ?> 
+        const icon_maker = '<?php echo get_template_part("assets/images/common/icon-maker",null); ?>';
+        $(".areaThumb #img-maps g#Group_60 >*:not(#Path_911)").on("click",function(event){
+            var id = $(this).attr("id");
+            var is_changed = false;
+
+            let maker_position_fix_left = 0;
+            let maker_position_fix_top = 0;
+
+
+            for (var i = map_desktop.length - 1; i >= 0; i--) {
+                if(map_desktop[i].title == id){
+                    is_changed = true;
+                    $(".areaThumb .areaBox a").attr("href",map_desktop[i].link);
+                    $(".areaThumb .areaBox a img").attr("src",map_desktop[i].thumbnail);
+                    $(".areaThumb .areaBox .areaBox-info .areaBox-tlt").html(map_desktop[i].title);
+                    $(".areaThumb .areaBox .areaBox-info .areaBox-text").html(map_desktop[i].description);
+                    $(".areaThumb .areaBox .btnMore .more").attr("href",map_desktop[i].link);
+                    maker_position_fix_top = map_desktop[i].maker_position_fix_top;
+                    maker_position_fix_left = map_desktop[i].maker_position_fix_left;
+                }
+            }
+            if(!is_changed){
+                $(".areaThumb .areaBox").fadeOut();
+            }else{
+                $(".areaThumb .areaBox").fadeIn();
+            } 
+
+            let top = $(this).position().top;
+            let left =  $(this).position().left;
+
+            let bottom = $(document).height() - ($(document).height() - top - $(this)[0].getBoundingClientRect().height);
+            let right = $(document).width() - ($(document).width() - left - $(this)[0].getBoundingClientRect().width);
+
+            let centerx = (left+right)/2 ; 
+            let centery = (top+bottom)/2 ;
+
+            let parent_top = $(".areaThumb").offset().top;
+            let parent_left = $(".areaThumb").offset().left;
+
+
+
+
+            let need_left = centerx - parent_left;
+            let need_top = centery - parent_top;
+
+            need_left -= 32/2;
+            need_top -= 40-10;
+
+            need_left += maker_position_fix_left;
+            need_top += maker_position_fix_top;
+
+
+            $(".areaThumb #icon_maker").remove();
+            $(".areaThumb").append($(icon_maker)).fadeIn();
+
+            $(".areaThumb #icon_maker").css("top",need_top + "px");
+            $(".areaThumb #icon_maker").css("left",need_left + "px");
+            $(".areaBox").removeClass('not-fired');
+        }); 
+        if(map_desktop.length){
+            $("#"+(map_desktop[0].title)).click();
+        } 
+    }
+</script>

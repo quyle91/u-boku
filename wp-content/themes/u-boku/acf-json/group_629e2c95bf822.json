@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_629e2c9cab3a8",
-            "label": "Category Banner",
+            "label": "Banner",
             "name": "category_banner",
             "type": "image",
             "instructions": "",
@@ -28,7 +28,7 @@
         },
         {
             "key": "field_629e2ccdab3a9",
-            "label": "Category Banner Mobile",
+            "label": "Banner Mobile",
             "name": "category_banner_copy",
             "type": "image",
             "instructions": "",
@@ -58,6 +58,13 @@
                 "operator": "==",
                 "value": "category"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "post_tag"
+            }
         ]
     ],
     "menu_order": 0,
@@ -69,5 +76,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654533511
+    "modified": 1657994440
 }
