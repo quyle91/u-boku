@@ -25,6 +25,18 @@ add_action( 'init',function(){
 	register_sidebar( $args );	
 
 	$args = array(
+		'name'          => __( 'Tag Sidebar', 'text-domain' ),
+		'id'            => 'ubk_tag_sidebar',
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<div class="bar %d" id="%s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="barTitle">',
+		'after_title'   => '</div>',
+	);	
+	register_sidebar( $args );	
+
+	$args = array(
 		'name'          => __( 'Page Sidebar', 'text-domain' ),
 		'id'            => 'ubk_page_sidebar',
 		'description'   => '',
@@ -47,17 +59,14 @@ add_filter('dynamic_sidebar_params', function( $params ) {
 	$span = "";
 
 	if($widget_name == 'U-boku Category'){
-		if(is_singular( 'post' )){
-			//nothing
-		}else{
-			$term_obj = get_queried_object();       
-            if(!is_admin()){
+		$term_obj = get_queried_object();     
+		if($term_obj->taxonomy  == 'category'){
+			if(!is_admin()){
 	            if(get_class($term_obj) == 'WP_Term'){
 	            	$subtitle = $term_obj->name;
 	            }
-        	}
+	    	}
 		}
-
 	}	
 
 	if($subtitle){

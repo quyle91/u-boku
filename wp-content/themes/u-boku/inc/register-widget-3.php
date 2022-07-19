@@ -63,7 +63,7 @@ class Ubk_Category extends WP_Widget {
         }
 
         if(is_singular('post')){
-            $args['post__not_in'] = [get_the_ID()];
+            //$args['post__not_in'] = [get_the_ID()];
         }else{            
             $term_obj = get_queried_object();       
             
@@ -81,10 +81,9 @@ class Ubk_Category extends WP_Widget {
                         ]
                     ];
                 }
-                if($term_obj->taxonomy == 'post_tag'){
+                /*if($term_obj->taxonomy == 'post_tag'){
                     $args['tag__in'] = [$term_obj->term_id];
-                }
-                
+                }*/
             }
         }
 
