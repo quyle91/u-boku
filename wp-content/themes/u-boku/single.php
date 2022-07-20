@@ -35,7 +35,22 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="detailTag">
-                        <?php echo ubk_get_tag_list(); ?>
+                        <?php //echo ubk_get_tag_list(); ?>
+                        <?php 
+                        $tags = get_the_tags();
+                        if(is_array($tags) and !empty($tags)){
+                        ?>
+                        <ul class="tagLst">
+                        <?php
+                            foreach ($tags as $key => $tag) {
+                                // code...
+                                echo '<li><a href="'.get_tag_link($tag).'">' . $tag->name . '</a></li>';
+                            }
+                            ?>
+                        </ul>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div class="detaiContent">
                         <?php
