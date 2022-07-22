@@ -3725,6 +3725,11 @@ textarea.form-control {
 .detailShare .shareItem ul li a .textLabel {
   font-weight: 700;
 }
+.bar--sticky {
+  position: sticky;
+  top: -40px;
+  background-color: #fff;
+}
 @media (max-width: 767px) {
   .detailShare .shareItem ul li a .textLabel {
     width: 100%;

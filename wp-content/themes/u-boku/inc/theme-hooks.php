@@ -4,7 +4,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style( 'bootstrap', get_template_directory_uri()."/assets/css/bootstrap.min.css");
     wp_enqueue_style( 'slick', get_template_directory_uri()."/assets/css/slick.css");
     wp_enqueue_style( 'style', get_template_directory_uri()."/assets/css/styles.css");
-    wp_enqueue_style( 'style-fix', get_template_directory_uri()."/assets/css/fix.css");
+    wp_enqueue_style( 'style-fix', get_template_directory_uri()."/assets/fix.css");
 
     wp_deregister_script('jquery');
     wp_register_script('jquery', get_template_directory_uri()."/assets/js/jquery-1.9.1.min.js", false);

@@ -176,7 +176,7 @@ img{
 .breadcrumb a::after{
   content: "";
   height: 9px;
-  background: url(../images/common/icon-breadcrumb.svg) no-repeat;
+  background: url(./images/common/icon-breadcrumb.svg) no-repeat;
   display: inline-block;
   padding: 4px 10px;
   margin-left: 15px;
@@ -280,4 +280,9 @@ body .thumbBanner .thumbCmt .thumbCmt-info{
 }
 .sectionArea .areaThumb .areaBox{
   z-index: 1;
+}
+.bar--sticky {
+  position: sticky;
+  top: 20px;
+  background-color: #fff;
 }

@@ -67,6 +67,7 @@ add_filter('dynamic_sidebar_params', function( $params ) {
 	            }
 	    	}
 		}
+		$params[0]['before_widget'] = '<div class="bar %d bar--sticky" id="%s">';
 	}	
 
 	if($subtitle){

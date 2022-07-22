@@ -141,11 +141,6 @@ function ubk_divide_scripts($matches, &$script_body, &$script_head) {
     if (isset($matches['table'])) {
         $script_head[] = '<link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/assets/css/base/table.css">';
     }*/
-
-    if (isset($matches['userSocials'])) {
-        $script_head[] = '<link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/assets/css/fix-userSocials.css">';
-    }
-
     $list_components = [
         /*'gallery' => [
             'css' => [
@@ -161,6 +156,11 @@ function ubk_divide_scripts($matches, &$script_body, &$script_head) {
                 get_template_directory_uri() . '/assets/js/components/block-gallery.js',
             ]
         ]*/
+        'userSocials'=>[
+            'css'=> [
+                get_template_directory_uri() . '/assets/css/fix-userSocials.css',
+            ]
+        ]
 
     ];
     foreach ($list_components as $key => $value) {
