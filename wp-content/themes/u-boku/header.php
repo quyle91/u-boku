@@ -18,6 +18,8 @@
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/assets/images/data/fav/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/assets/images/data/fav/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/assets/images/data/fav/favicon-16x16.png">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" as="font" crossorigin="anonymous">
+        <link rel="preload" href="hhttps://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" as="font" crossorigin="anonymous">
         <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/assets/images/data/fav/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/images/data/fav/ms-icon-144x144.png">

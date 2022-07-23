@@ -31,18 +31,7 @@ class Ubk_Category extends WP_Widget {
         if(is_singular('post')){
             
         }else{            
-            $term_obj = get_queried_object();
-            if(!$title){
-                if(get_class($term_obj) == 'WP_Term'){
-                    if($term_obj->taxonomy == 'category'){
-                        $title = 'CATEGORY';
-                    }
-                    if($term_obj->taxonomy == 'post_tag'){
-                        $title = 'KEYWORD';
-                    }
-                    
-                }
-            }
+            $title = get_sidebar_title($title);
         }
 
  
@@ -62,32 +51,8 @@ class Ubk_Category extends WP_Widget {
             $args['category__in'] = [$category_select];
         }
 
-        if(is_singular('post')){
-            //$args['post__not_in'] = [get_the_ID()];
-        }else{            
-            $term_obj = get_queried_object();       
-            
-            if(get_class($term_obj) == 'WP_Term'){
-                if($term_obj->taxonomy == 'category'){
-                    //$args['category__in'] = [$term_obj->term_id];
-                    $args['tax_query'] = [
-                        'relation'=> 'AND',
-                        [
-                            'taxonomy'=>'category',
-                            'field'=>'term_id',
-                            'terms'=> [$term_obj->term_id],
-                            'include_children'=>true,
-                            'operator'=> 'IN'
-                        ]
-                    ];
-                }
-                /*if($term_obj->taxonomy == 'post_tag'){
-                    $args['tag__in'] = [$term_obj->term_id];
-                }*/
-            }
-        }
-
         $args = apply_filters( 'ubk_category_query_args', $args );
+        //echo "<pre>";print_r($args);echo "</pre>";
         $query = new WP_Query( $args );        
         if ( $query->have_posts() ) { 
             ?>
@@ -105,13 +70,7 @@ class Ubk_Category extends WP_Widget {
             </div>
             <?php
         }
-        wp_reset_postdata();        
-
-
-        
-
-
-
+        wp_reset_postdata();
         echo $after_widget;
     }
  

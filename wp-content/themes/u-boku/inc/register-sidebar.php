@@ -11,6 +11,18 @@ add_action( 'init',function(){
 		'after_title'   => '</div>',
 	);	
 	register_sidebar( $args );	
+	
+	$args = array(
+		'name'          => __( 'Archive Sidebar', 'text-domain' ),
+		'id'            => 'ubk_archive_sidebar',
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<div class="bar %d" id="%s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="barTitle">',
+		'after_title'   => '</div>',
+	);	
+	register_sidebar( $args );	
 
 	$args = array(
 		'name'          => __( 'Single Sidebar', 'text-domain' ),
@@ -59,15 +71,10 @@ add_filter('dynamic_sidebar_params', function( $params ) {
 	$span = "";
 
 	if($widget_name == 'U-boku Category'){
-		$term_obj = get_queried_object();     
-		if($term_obj->taxonomy  == 'category'){
-			if(!is_admin()){
-	            if(get_class($term_obj) == 'WP_Term'){
-	            	$subtitle = $term_obj->name;
-	            }
-	    	}
-		}
 		$params[0]['before_widget'] = '<div class="bar %d bar--sticky" id="%s">';
+		if(!is_admin()){ 
+			$subtitle = get_sidebar_subtitle($subtitle);
+		}
 	}	
 
 	if($subtitle){
@@ -78,3 +85,33 @@ add_filter('dynamic_sidebar_params', function( $params ) {
 	return $params;
 });
 
+function get_sidebar_title($title){
+	if($title) return $title;
+	if(is_home()){
+        return  strtoupper(get_the_title(get_option('page_for_posts')));
+    }
+    $term_obj = get_queried_object();
+    if(get_class($term_obj) == 'WP_Term'){
+        if($term_obj->taxonomy == 'category'){
+            return 'CATEGORY';
+        }
+        if($term_obj->taxonomy == 'post_tag'){
+            return 'KEYWORD';
+        }
+    }
+}
+function get_sidebar_subtitle($subtitle){
+	if($subtitle) return $subtitle;
+	if(is_home()){
+        //
+    }
+    $term_obj = get_queried_object();
+    if(get_class($term_obj) == 'WP_Term'){
+        if($term_obj->taxonomy == 'category'){
+            return $term_obj->name;
+        }
+        if($term_obj->taxonomy == 'post_tag'){
+            return $term_obj->name;
+        }
+    }
+}

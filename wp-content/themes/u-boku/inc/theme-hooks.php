@@ -64,9 +64,36 @@ add_action('wp_footer',function(){
         }     
     }
 });
+
 add_filter('ubk_category_query_args',function($args){
     $args['meta_key'] = 'hit';
     $args['orderby'] = 'meta_value_num';
     $args['meta_type']  = 'NUMERIC';
+
+    // change query args 
+    if(is_singular('post')){
+        //$args['post__not_in'] = [get_the_ID()];
+    }else{            
+        $term_obj = get_queried_object();       
+        
+        if(get_class($term_obj) == 'WP_Term'){
+            if($term_obj->taxonomy == 'category'){
+                //$args['category__in'] = [$term_obj->term_id];
+                $args['tax_query'] = [
+                    'relation'=> 'AND',
+                    [
+                        'taxonomy'=>'category',
+                        'field'=>'term_id',
+                        'terms'=> [$term_obj->term_id],
+                        'include_children'=>true,
+                        'operator'=> 'IN'
+                    ]
+                ];
+            }
+            if($term_obj->taxonomy == 'post_tag'){
+                $args['tag__in'] = [$term_obj->term_id];
+            }
+        }
+    }
     return $args;
 });
