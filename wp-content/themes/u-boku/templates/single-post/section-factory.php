@@ -14,7 +14,17 @@
                 );
                 $cat = false;
                 if($cat){
-                    $args['category__in'] = [$cat->term_id];
+                    //$args['category__in'] = [$cat->term_id];
+                    $args['tax_query'] = [
+                        'relation'=> 'AND',
+                        [
+                            'taxonomy'=>'category',
+                            'field'=>'term_id',
+                            'terms'=> [$cat->term_id],
+                            'include_children'=>true,
+                            'operator'=> 'IN'
+                        ]
+                    ];
                 }
 
                 $query = new WP_Query( $args );

@@ -41,7 +41,17 @@
                             $cat = isset($value['items'])? $value['items'] : false;
 
                             if($cat){
-                                $args['category__in'] = [$cat->term_id];
+                                //$args['category__in'] = [$cat->term_id];
+                                $args['tax_query'] = [
+                                    'relation'=> 'AND',
+                                    [
+                                        'taxonomy'=>'category',
+                                        'field'=>'term_id',
+                                        'terms'=> [$cat->term_id],
+                                        'include_children'=>true,
+                                        'operator'=> 'IN'
+                                    ]
+                                ];
                             }
                             $args = apply_filters( 'ubk_category_query_args', $args );
 

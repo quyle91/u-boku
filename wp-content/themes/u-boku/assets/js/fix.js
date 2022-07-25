@@ -1,5 +1,8 @@
 $(function(){
 	/*** back top *****/
+	$(document).on('click','.navFix .navThumb-sub a', function(){
+		$(".navFix .btn-closeNav").click();
+	});
 	$(document).on('click','a[href="#backTop"]', function(){
 		$('body,html').animate({scrollTop: 0}, 800);
 		return false;

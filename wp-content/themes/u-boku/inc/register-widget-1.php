@@ -42,7 +42,17 @@ class Ubk_New_Arrivals extends WP_Widget {
 
         $category_select = $instance['category_select'];
         if(isset($category_select) and $category_select){
-            $args['category__in'] = [$category_select];
+            //$args['category__in'] = [$category_select];
+            $args['tax_query'] = [
+                'relation'=> 'AND',
+                [
+                    'taxonomy'=>'category',
+                    'field'=>'term_id',
+                    'terms'=> [$category_select],
+                    'include_children'=>true,
+                    'operator'=> 'IN'
+                ]
+            ];
         }
 
         $query = new WP_Query( $args );        
