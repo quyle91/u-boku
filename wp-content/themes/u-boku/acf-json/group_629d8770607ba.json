@@ -23,7 +23,7 @@
         },
         {
             "key": "field_62a321a4311b2",
-            "label": "Matome Select",
+            "label": "まとめ情報の選択",
             "name": "matome_select",
             "type": "post_object",
             "instructions": "",
@@ -45,7 +45,7 @@
         },
         {
             "key": "field_62a321e759ef0",
-            "label": "Matome Thumbnail",
+            "label": "まとめ画像",
             "name": "matome_thumbnail",
             "type": "true_false",
             "instructions": "",
@@ -81,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654858776
+    "modified": 1659491888
 }

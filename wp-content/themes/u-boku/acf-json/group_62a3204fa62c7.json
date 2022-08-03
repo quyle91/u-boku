@@ -1,10 +1,10 @@
 {
     "key": "group_62a3204fa62c7",
-    "title": "Matome",
+    "title": "まとめ",
     "fields": [
         {
             "key": "field_62a320546c479",
-            "label": "Address",
+            "label": "住所",
             "name": "address",
             "type": "wysiwyg",
             "instructions": "",
@@ -23,7 +23,7 @@
         },
         {
             "key": "field_62a3209f6c47a",
-            "label": "Phone Number",
+            "label": "電話番号",
             "name": "phone_number",
             "type": "text",
             "instructions": "",
@@ -42,7 +42,7 @@
         },
         {
             "key": "field_62a320c06c47c",
-            "label": "Website",
+            "label": "WEB",
             "name": "website",
             "type": "text",
             "instructions": "",
@@ -61,7 +61,7 @@
         },
         {
             "key": "field_62a320ab6c47b",
-            "label": "Time Work",
+            "label": "営業時間",
             "name": "time_work_",
             "type": "wysiwyg",
             "instructions": "",
@@ -80,7 +80,7 @@
         },
         {
             "key": "field_62a320d56c47d",
-            "label": "Day Off",
+            "label": "定休日",
             "name": "time",
             "type": "wysiwyg",
             "instructions": "",
@@ -116,5 +116,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1654929697
+    "modified": 1659491617
 }

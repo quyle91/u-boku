@@ -1,7 +1,7 @@
 <?php 
 add_action( 'init',function(){
 	$args = array(
-		'name'          => __( 'Blog Sidebar', 'text-domain' ),
+		'name'          => '新着記事の右メニュー',
 		'id'            => 'ubk_sidebar',
 		'description'   => '',
 		'class'         => '',
@@ -13,7 +13,7 @@ add_action( 'init',function(){
 	register_sidebar( $args );	
 	
 	$args = array(
-		'name'          => __( 'Archive Sidebar', 'text-domain' ),
+		'name'          => 'カテゴリーの一覧画面の右メニュー',
 		'id'            => 'ubk_archive_sidebar',
 		'description'   => '',
 		'class'         => '',
@@ -25,7 +25,7 @@ add_action( 'init',function(){
 	register_sidebar( $args );	
 
 	$args = array(
-		'name'          => __( 'Single Sidebar', 'text-domain' ),
+		'name'          => '記事詳細画面の右メニュー',
 		'id'            => 'ubk_single_sidebar',
 		'description'   => '',
 		'class'         => '',
@@ -37,7 +37,7 @@ add_action( 'init',function(){
 	register_sidebar( $args );	
 
 	$args = array(
-		'name'          => __( 'Tag Sidebar', 'text-domain' ),
+		'name'          => 'タグの一覧画面の右メニュー',
 		'id'            => 'ubk_tag_sidebar',
 		'description'   => '',
 		'class'         => '',
@@ -49,7 +49,7 @@ add_action( 'init',function(){
 	register_sidebar( $args );	
 
 	$args = array(
-		'name'          => __( 'Page Sidebar', 'text-domain' ),
+		'name'          => 'U-bokuとは？の右メニュー',
 		'id'            => 'ubk_page_sidebar',
 		'description'   => '',
 		'class'         => '',
